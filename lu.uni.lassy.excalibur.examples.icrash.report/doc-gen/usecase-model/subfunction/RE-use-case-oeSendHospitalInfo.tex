@@ -1,0 +1,50 @@
+\subsubsection{subfunction-oeSendHospitalInfo}
+
+\label{RE-use-case-oeSendHospitalInfo}
+
+
+send selected information to near hospitals		  
+
+
+\begin{usecase}
+  \addheading{Use-Case Description}
+  \addsingletwocolumnrow{Name}{oeSendHospitalInfo}
+  \addsingletwocolumnrow{Scope}{system}
+  \addsingletwocolumnrow{Level}{subfunction}
+  
+\addrowheading{Parameters}
+\addnumberedsinglerow{AdtGPSLocation: dtGPSLocation}{}
+\addnumberedsinglerow{AdtQtyVictims: dtQtyVictims}{}
+\addnumberedsinglerow{AetSeverity: etSeverity}{}
+
+\addrowheading{Primary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actCoordinator[active]}}
+
+
+\addrowheading{Secondary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actHospital[passive, multiple]}}
+
+\addrowheading{Goal(s) description}
+\addsinglerow{send selected information to near hospitals}
+
+\addrowheading{Protocol condition(s)}
+\addnumberedsinglerow{}{The coordinator is already logged in
+}
+\addnumberedsinglerow{}{The system is already initialized
+}
+
+\addrowheading{Pre-condition(s)}
+\addnumberedsinglerow{}{Exists a crisis that is being handling by this coordinator
+}
+
+\addrowheading{Main post-condition(s)}
+\addnumberedsinglerow{}{The system sends information to near hospitals
+}
+
+\addrowheading{Additional Information}
+\addsinglerow{
+none
+}
+
+\end{usecase} 
+

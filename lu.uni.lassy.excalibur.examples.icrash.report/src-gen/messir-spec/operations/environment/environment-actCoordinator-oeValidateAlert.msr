@@ -1,0 +1,57 @@
+package icrash.operations.environment.actCoordinator.oeValidateAlert {
+
+import lu.uni.lassy.messir.libraries.primitives
+import lu.uni.lassy.messir.libraries.math
+import lu.uni.lassy.messir.libraries.string
+import lu.uni.lassy.messir.libraries.calendar
+import icrash.concepts.primarytypes.datatypes
+import icrash.environment
+import icrash.concepts.primarytypes.classes
+
+Operation Model {
+
+	operation: actCoordinator.outactCoordinator.oeValidateAlert(
+		AdtAlertID:dtAlertID
+	):ptBoolean{
+	
+	preP {
+		let theSystem: ctState in
+  		let theActor:actAuthenticated in
+  		self.rnActor.rnSystem = TheSystem
+  		and self.rnActor = TheActor
+  
+		/* PreP01 */
+  		and TheSystem.vpStarted = true
+		/* PreP02 */
+  		and TheActor.rnctAuthenticated.vpIsLogged = false
+  	}
+  	
+  	preF {
+  		let theSystem: ctState = self.rnActor.rnSystem in
+  		let theAlerts: Set(ctAlert) = theSystem.rnctAlert in
+  		theAlerts -> exists(a: ctAlert | a.id = AdtAlertID)
+  	}
+  	
+  	postF {
+  		let theSystem: ctState in
+  		let theAlerts: Set(ctAlert) in
+  		let theAlert: ctAlert in
+  		let theNewAlert: ctAlert in
+  		theSystem = self.rnActor.rnSystem and
+  		theAlerts = theSystem.rnctAlert and
+  		theAlert = theAlerts->any(a: ctAlert | a.id = AdtAlertID) and
+  		theNewAlert = theAlert and
+  		theNewAlert.status = valid and
+  		theSystem.rnctAlert = (theAlerts->excluding(theAlert)).including(theNewAlert) and
+  		self.rnActor.rnInterfaceIN^ieValidateAlert(theNewAlert.id) 
+  	}
+  	
+  	postP {
+  		true
+  	}
+	
+	//prolog{"src/Operations/Environment/OUT/outactCoordinator-oeValidateAlert.pl"}
+}
+
+}
+}

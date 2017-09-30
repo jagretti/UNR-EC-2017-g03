@@ -1,0 +1,17 @@
+/*
+@author jose
+@date Wed Sep 27 18:39:39 ART 2017
+*/
+
+
+@@Actor icrash.environment.actHospital
+@description "represents a hospital in some place"
+//input events
+@inputEvent
+icrash.environment.actHospital.inactHospital.ieSendHospitalInfo
+"allow a hospital to receive certain information related to a crisis
+"
+
+@endInputEvents
+//output events
+

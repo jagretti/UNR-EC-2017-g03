@@ -1,0 +1,12 @@
+/*
+@author jose
+@date Wed Sep 27 19:00:13 ART 2017
+*/
+
+
+@@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtQtyVictims
+@description ""
+@operation
+icrash.concepts.primarytypes.datatypes.dtQtyVictims.is
+""
+@endOperations

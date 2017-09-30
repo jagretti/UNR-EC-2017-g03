@@ -1,0 +1,48 @@
+package icrash.operations.environment.actCoordinator.oeGetAlertsSet {
+
+import lu.uni.lassy.messir.libraries.primitives
+import lu.uni.lassy.messir.libraries.math
+import lu.uni.lassy.messir.libraries.string
+import lu.uni.lassy.messir.libraries.calendar
+
+import icrash.concepts.primarytypes.datatypes
+import icrash.environment
+
+import icrash.concepts.primarytypes.classes
+
+Operation Model {
+
+	operation: actCoordinator.outactCoordinator.oeGetAlertsSet(
+		AetAlertStatus:etAlertStatus
+	):ptBoolean{
+	
+	preP {
+		let TheSystem: ctState in
+  		let TheActor:actAuthenticated in
+  		self.rnActor.rnSystem = TheSystem
+  		and self.rnActor = TheActor
+  
+		/* PreP01 */
+  		and TheSystem.vpStarted = true
+		/* PreP02 */
+  		and TheActor.rnctAuthenticated.vpIsLogged = false
+	}
+	
+	preF {true}
+	
+	postF {
+		let 
+			theSystem: ctState = self.rnActor.rnSystem,
+			theAlerts: Set(ctAlert) = Set{}
+		in
+			theAlerts = theSystem.rnctAlert-> select(a:ctAlert | a.status = AetAlertStatus) and
+			self.rnActor.rnInterfaceIN^ieSendAlerts(theAlerts)
+	}
+	
+	postP {true}
+		
+		
+	//prolog{"src/Operations/Environment/OUT/outactCoordinator-oeGetAlertsSet.pl"}
+}
+}
+}

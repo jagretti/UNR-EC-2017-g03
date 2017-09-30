@@ -1,0 +1,12 @@
+/*
+@author jose
+@date Wed Sep 27 19:00:11 ART 2017
+*/
+
+
+@@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtHospitalID
+@description ""
+@operation
+icrash.concepts.primarytypes.datatypes.dtHospitalID.is
+""
+@endOperations

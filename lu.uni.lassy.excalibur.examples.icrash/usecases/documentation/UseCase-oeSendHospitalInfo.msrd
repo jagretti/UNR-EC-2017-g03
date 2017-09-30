@@ -1,0 +1,31 @@
+/*
+@author jose
+@date Tue Sep 26 17:11:47 ART 2017
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeSendHospitalInfo
+@description "send selected information to near hospitals"
+@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AdtGPSLocation ""
+@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AdtQtyVictims ""
+@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AetSeverity ""
+@endParameters
+@protocolCondition
+"The coordinator is already logged in
+"
+@protocolCondition
+"The system is already initialized
+"
+@endProtocolConditions
+@preCondition
+"Exists a crisis that is being handling by this coordinator
+"
+@endPreConditions
+@postCondition
+"The system sends information to near hospitals
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

@@ -1,0 +1,24 @@
+package icrash.environment.operations.actCoordinator.outactCoordinator.oeSendHospitalInfo {
+
+import lu.uni.lassy.messir.libraries.primitives
+import lu.uni.lassy.messir.libraries.math
+import lu.uni.lassy.messir.libraries.string
+import lu.uni.lassy.messir.libraries.calendar
+import icrash.concepts.primarytypes.datatypes
+
+	Operation Model {
+
+		operation: icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo(AdtGPSLocation:dtGPSLocation, AdtQtyVictims:dtQtyVictims, AetSeverity:etSeverity):ptBoolean{
+		// include below the specification information (pre,post or ocl or prolog)
+		
+		preP {true}
+		
+		preF{true}
+		
+		postF{true}
+		
+		postP{true}
+
+		}
+	}
+}

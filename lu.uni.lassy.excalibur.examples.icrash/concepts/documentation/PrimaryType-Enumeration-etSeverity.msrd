@@ -1,0 +1,12 @@
+/*
+@author jose
+@date Wed Sep 27 19:00:17 ART 2017
+*/
+
+
+@@Primary Type Enumeration icrash.concepts.primarytypes.datatypes.etSeverity
+@description ""
+@operation
+icrash.concepts.primarytypes.datatypes.etSeverity.is
+""
+@endOperations

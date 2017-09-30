@@ -1,0 +1,43 @@
+/*
+@author jose
+@date Wed Sep 27 18:32:13 ART 2017
+*/
+
+
+@@Operation
+icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo
+//parameters
+@parameter
+icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtGPSLocation
+""
+@parameter
+icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtQtyVictims
+""
+@parameter
+icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AetSeverity
+""
+@parameter
+icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtCrisisID
+""
+@endParameters
+
+@description "
+ "
+//preProtocol descriptions
+@preP
+" The vpStarted is true"
+@endPreP
+//preFunctional descriptions
+@preF
+" the actCoordinator the crisis whose information he wants to share"
+@endPreF
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//postProtocol descriptions
+@postP 
+" "
+@endPostP
+//example
+@example" "
