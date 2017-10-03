@@ -1,0 +1,12 @@
+/*
+@author jose
+@date Tue Oct 03 19:48:26 ART 2017
+*/
+
+
+@@Primary Type Class icrash.concepts.primarytypes.classes.ctAlertBackup
+@description "Represents the backup of an alert"
+@operation
+icrash.concepts.primarytypes.classes.ctAlertBackup.init
+""
+@endOperations

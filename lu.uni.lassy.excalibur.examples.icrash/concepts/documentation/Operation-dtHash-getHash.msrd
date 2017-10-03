@@ -1,0 +1,22 @@
+/*
+@author jose
+@date Tue Oct 03 18:36:13 ART 2017
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.datatypes.dtHash.getHash
+//parameters
+@parameter
+icrash.concepts.primarytypes.datatypes.dtHash.getHash.ActAlert
+""
+@endParameters
+
+@description "
+ "
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//example
+@example" "

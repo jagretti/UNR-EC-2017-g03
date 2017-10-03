@@ -5,7 +5,7 @@
 
 
 @@Primary Type Enumeration icrash.concepts.primarytypes.datatypes.etSeverity
-@description ""
+@description "Express the severity of a crash"
 @operation
 icrash.concepts.primarytypes.datatypes.etSeverity.is
 ""

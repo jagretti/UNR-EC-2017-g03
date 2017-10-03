@@ -44,7 +44,7 @@ then a new one is added in the post-state with given phone number and kind and i
 else the pre-state one is chosen
 "
 @postF 
-"and this specified ctHuman is related to the new alert thus indicating he has signled the alert. "
+"and this specified ctHuman is related to the new alert thus indicating he has signed the alert. "
 
 @endPostF
 

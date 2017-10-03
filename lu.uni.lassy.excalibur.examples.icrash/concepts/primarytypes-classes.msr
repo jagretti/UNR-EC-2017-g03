@@ -31,13 +31,13 @@ import lu.uni.lassy.messir.libraries.calendar
 			class ctHospital role rnctHospital cardinality [0..*]{
 				attribute attLocation: dtGPSLocation
 			}
-	
-			class ctAlert role rnctAlert cardinality [0..*]{
-				attribute id:dtAlertID
+			
+			class ctAlertAC role rnctAlertAC cardinality [0..*] {
+				attribute id: dtAlertID
 				attribute status: etAlertStatus
-				attribute location:dtGPSLocation
-				attribute instant:dtDateAndTime
-				attribute comment:dtComment
+				attribute location: dtGPSLocation
+				attribute instant: dtDateAndTime
+				attribute comment: dtComment
 				
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
@@ -45,7 +45,22 @@ import lu.uni.lassy.messir.libraries.calendar
 										Ainstant:dtDateAndTime ,
 										Acomment:dtComment ):ptBoolean
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
-			 
+			}
+	
+			class ctAlert role rnctAlert cardinality [0..*] extends ctAlertAC {
+				operation init(     	Aid:dtAlertID ,
+										Astatus:etAlertStatus ,
+										Alocation:dtGPSLocation ,
+										Ainstant:dtDateAndTime ,
+										Acomment:dtComment ):ptBoolean
+			}
+			
+			class ctAlertBackup role rnctAlertBackup cardinality [0..*] extends ctAlertAC {
+				operation init(     	Aid:dtAlertID ,
+										Astatus:etAlertStatus ,
+										Alocation:dtGPSLocation ,
+										Ainstant:dtDateAndTime ,
+										Acomment:dtComment ):ptBoolean
 			}
 			
 			class ctCrisis role rnctCrisis cardinality [0..*]{

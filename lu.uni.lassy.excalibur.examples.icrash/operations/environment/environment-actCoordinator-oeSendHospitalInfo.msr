@@ -45,7 +45,7 @@ import icrash.environment
 			in
 				self.rnActor.rnSystem = TheSystem
 				TheSystem.rnctHospital = TheHospitals
-				TheHospitals -> forAll(h:ctHospital | h.rnactHospital.rnInterfaceIN^ieSendHospitalInfo(AdtGPSLocation,AdtQtyVictims,AetSeverity))
+				TheHospitals -> forAll(h:ctHospital | h.attLocation.isNearTo(AdtGPSLocation) and h.rnactHospital.rnInterfaceIN^ieSendHospitalInfo(AdtGPSLocation,AdtQtyVictims,AetSeverity))
 		}
 		
 		postP{true}

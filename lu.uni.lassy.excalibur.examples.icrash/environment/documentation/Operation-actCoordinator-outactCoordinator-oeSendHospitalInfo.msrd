@@ -22,6 +22,7 @@ icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtCrisis
 @endParameters
 
 @description "
+The coordinators send selected information to all hospitals that are near of alert's location
  "
 //preProtocol descriptions
 @preP
@@ -29,15 +30,15 @@ icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtCrisis
 @endPreP
 //preFunctional descriptions
 @preF
-" the actCoordinator the crisis whose information he wants to share"
+"The actCoordinator have the crisis whose information he wants to share"
 @endPreF
 //postFunctional descriptions
 @postF 
-" "
+" All the actHospital that are near of the alert's location, receive the corresponding information"
 @endPostF
 //postProtocol descriptions
 @postP 
-" "
+" True "
 @endPostP
 //example
 @example" "

@@ -5,7 +5,7 @@
 
 
 @@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtQtyVictims
-@description ""
+@description "this dt is used to express the number of victims on a crash"
 @operation
 icrash.concepts.primarytypes.datatypes.dtQtyVictims.is
 ""

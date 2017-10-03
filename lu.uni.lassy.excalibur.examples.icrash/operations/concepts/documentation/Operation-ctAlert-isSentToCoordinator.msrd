@@ -1,7 +1,7 @@
 @@Operation
-icrash.concepts.primarytypes.classes.ctAlert.isSentToCoordinator
+icrash.concepts.primarytypes.classes.ctAlertAC.isSentToCoordinator
 //parameters
-@parameter icrash.concepts.primarytypes.classes.ctAlert.isSentToCoordinator.AactCoordinator
+@parameter icrash.concepts.primarytypes.classes.ctAlertAC.isSentToCoordinator.AactCoordinator
 "the message destination"
 @endParameters
 @description

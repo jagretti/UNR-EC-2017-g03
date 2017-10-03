@@ -1,0 +1,31 @@
+/*
+@author jose
+@date Tue Oct 03 19:44:59 ART 2017
+*/
+
+
+@@Primary Type Class icrash.concepts.primarytypes.classes.ctAlertAC
+@description "Represent an abstract class of an Alert"
+@attribute
+icrash.concepts.primarytypes.classes.ctAlertAC.id
+"the alert unique identification information."
+@attribute
+icrash.concepts.primarytypes.classes.ctAlertAC.status
+"the alert validation status"
+@attribute
+icrash.concepts.primarytypes.classes.ctAlertAC.location
+"the position of the alert provided by the space-based satellite navigation system used by the human using the communication company to inform the \msricrash system of a crisis."
+@attribute
+icrash.concepts.primarytypes.classes.ctAlertAC.instant
+"the date and time at which the alert notification has been sent."
+@attribute
+icrash.concepts.primarytypes.classes.ctAlertAC.comment
+"a textual description providing unstructured information on the alert."
+@endAttributes
+@operation
+icrash.concepts.primarytypes.classes.ctAlertAC.init
+"used to initialize the current object as a new instance of the ctAlert type."
+@operation
+icrash.concepts.primarytypes.classes.ctAlertAC.isSentToCoordinator
+"used to provide a given coordinator with current alert information."
+@endOperations

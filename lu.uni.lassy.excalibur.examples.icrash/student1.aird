@@ -455,6 +455,12 @@
   <semanticResources>concepts/documentation/PrimaryType-Enumeration-etSeverity.msrd</semanticResources>
   <semanticResources>concepts/documentation/Operation-etSeverity-is.msrd</semanticResources>
   <semanticResources>environment/documentation/Operation-actHospital-init.msrd</semanticResources>
+  <semanticResources>operations/concepts/primarytypes-classes/primarytypes-classes-ctAlertAC-isSentToCoordinator.msr</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctAlertAC-isSentToCoordinator.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-dtHash-getHash.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Datatype-dtHash.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Class-ctAlertAC.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Class-ctAlertBackup.msrd</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_UmILAPWqEeSOM9Kfym77Zg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
   </ownedViews>
