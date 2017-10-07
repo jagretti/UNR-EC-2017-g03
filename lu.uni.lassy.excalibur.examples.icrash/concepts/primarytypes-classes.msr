@@ -29,6 +29,7 @@ import lu.uni.lassy.messir.libraries.calendar
 			}
 			
 			class ctHospital role rnctHospital cardinality [0..*]{
+				attribute id: dtHospitalID
 				attribute attLocation: dtGPSLocation
 			}
 			

@@ -1,0 +1,38 @@
+/*
+@author jose
+@date Sat Oct 07 17:38:35 ART 2017
+*/
+
+
+@@Operation
+icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital
+//parameters
+@parameter
+icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital.AdtHospitalID
+""
+@endParameters
+
+@description "Operation to delete a Hospital from the system
+ "
+//preProtocol descriptions
+@preP
+"The vpStarted is true "
+@preP
+"ctAuthenticated instance of the administrator is considered logged"
+@endPreP
+//preFunctional descriptions
+@preF
+" it is supposed that there exist one ctHospital instance with the same \msrcode{id} attribute than the one the administrator wants to delete."
+@endPreF
+//postFunctional descriptions
+@postF 
+" the ctHospital class instance having the required id do not belong anymore to the post state as well as is related actHospital actor instance."
+@postF
+"the administrator actor is informed about the satisfaction of its request."
+@endPostF
+//postProtocol descriptions
+@postP 
+" "
+@endPostP
+//example
+@example" "

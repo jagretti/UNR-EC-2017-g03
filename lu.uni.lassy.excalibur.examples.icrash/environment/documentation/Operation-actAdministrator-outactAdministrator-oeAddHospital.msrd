@@ -1,0 +1,48 @@
+/*
+@author jose
+@date Wed Oct 04 21:09:36 ART 2017
+*/
+
+
+@@Operation
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital
+//parameters
+@parameter
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtHospitalID
+""
+@parameter
+icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtGPSLocation
+""
+@endParameters
+
+@description "
+The administrator add a new hospital in the system
+ "
+//preProtocol descriptions
+@preP
+"The vpStarted is true "
+@preP
+"ctAuthenticated instance of the administrator is considered logged"
+@endPreP
+//preFunctional descriptions
+@preF
+" There no exists a Hospital with the same ID that the one is being created "
+@endPreF
+//postFunctional descriptions
+@postF 
+" The system has a new ctHospital instance with the data of the new hospital"
+@postF
+" the environment has a new instance of hospital actor allowing for input/output message communication with the system."
+@postF
+" The administrator actor is informed about the success of its request"
+@postF
+"the new actor instance and ctHospital instance are related according to the authenticated association."
+@postF
+"the administrator actor is informed about the satisfaction of its request."
+@endPostF
+//postProtocol descriptions
+@postP 
+" none"
+@endPostP
+//example
+@example" "

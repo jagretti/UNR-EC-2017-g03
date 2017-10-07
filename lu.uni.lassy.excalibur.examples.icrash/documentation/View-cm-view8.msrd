@@ -1,0 +1,13 @@
+/*
+@author jose
+@date Sat Oct 07 17:24:35 ART 2017
+*/
+
+
+@@view cm-view8
+@model Concept
+@level Local
+@sublevel Primary Class
+@number 8
+@description "A class to represent a Hospital in the System"
+@caption ""

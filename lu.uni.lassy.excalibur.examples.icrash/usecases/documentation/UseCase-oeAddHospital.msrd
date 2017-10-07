@@ -1,0 +1,29 @@
+/*
+@author jose
+@date Wed Oct 04 21:04:58 ART 2017
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeAddHospital
+@description "The administrator add a new Hospital in the system"
+@parameter icrash.usecases.subfunctions.oeAddHospital.AdtHospitalID ""
+@parameter icrash.usecases.subfunctions.oeAddHospital.AdtGPSLocation ""
+@endParameters
+@protocolCondition
+"
+The system is running, and the administrator is logged in
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+The new hospital is added to the system
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

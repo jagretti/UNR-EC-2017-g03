@@ -36,12 +36,17 @@ import lu.uni.lassy.messir.libraries.calendar
 											
 				operation oeDeleteCoordinator(
 											AdtCoordinatorID:dtCoordinatorID ):ptBoolean
+				operation oeAddHospital(AdtHospitalID: dtHospitalID, 
+					AdtGPSLocation: dtGPSLocation): ptBoolean
+				operation oeDeleteHospital(AdtHospitalID: dtHospitalID): ptBoolean
 			}
 			
 			input interface inactAdministrator{
 				
 				operation ieCoordinatorAdded():ptBoolean
 				operation ieCoordinatorDeleted():ptBoolean
+				operation ieHospitalAdded(AdtHospitalID: dtHospitalID):ptBoolean
+				operation ieHospitalDeleted(AdtHospitalID: dtHospitalID):ptBoolean
 	 		}
 		}
 		
