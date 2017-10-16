@@ -6,15 +6,16 @@
 @parameter icrash.usecases.subfunctions.oeValidateAlert.AdtAlertID ""
 @endParameters
 @protocolCondition
-"
+"The system is started
 "
 @endProtocolConditions
 @preCondition
-"
+"Exists an alert in the system with the given ID
 "
 @endPreConditions
 @postCondition
-"
+"If the integrity of the alert its ok, then its state is set to 'valid', if is not, the system swaps the instance
+of the current alert, with the instance of the backup alert, and the set the state to 'valid'.
 "
 @endPostConditions
 @additionalInformation

@@ -24,6 +24,8 @@ The \msrcode{oeValidateAlert} operation has the following properties:
 
 	\addrowheading{Post-Condition (functional)}
 	\addnumberedsinglerow{PostF}{the ctAlert class instance having the provided id is considered as valid in the post state and the coordinator actor is informed about the satisfaction of its request.}
+	\addnumberedsinglerow{PostF}{If the hash of the actual alert it is not equal to the hash of the backup, then the actual alert its replaced 
+	by the backup alert, because the integrity has been corrupted}
 
 	\addrowheading{Post-Condition (protocol)}
 	\addnumberedsinglerow{PostP}{ none}
@@ -31,6 +33,60 @@ The \msrcode{oeValidateAlert} operation has the following properties:
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeValidateAlert-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeValidateAlert}.},label=OM-actCoordinator-oeValidateAlert-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let theSystem: ctState in
+	  		let theActor:actAuthenticated in
+	  		self.rnActor.rnSystem = TheSystem
+	  		and self.rnActor = TheActor
+	  
+			/* PreP01 */
+	  		and TheSystem.vpStarted = true
+			/* PreP02 */
+	  		and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{let theSystem: ctState = self.rnActor.rnSystem in
+	  		let theAlerts: Set(ctAlert) = theSystem.rnctAlert in
+	  		theAlerts -> exists(a: ctAlert | a.id = AdtAlertID)}
+	
+	/* Post Functional:*/ 
+	postF{let theSystem: ctState in
+	  		let theAlerts: Set(ctAlert) in
+	  		let theAlert: ctAlert in
+	  		let theAlertsBackup: Set(ctAlertBackup) in
+	  		let theAlertBackup: ctAlertBackup in
+	  		
+	  		theSystem = self.rnActor.rnSystem and
+	  		theAlerts = theSystem.rnctAlert and
+	  		theAlertsBackup = theSystem.rnctAlertBackup and
+	  		theAlerts->any(a: ctAlert | a.id = AdtAlertID) = theAlert and
+	  		theAlertsBackup->any(a: ctAlertBackup | a.id = AdtAlertID) = theAlertBackup and
+	  		
+	  		// Checking integrity
+	  		if (theAlert.hash.isEqual(theAlertBackup.hash))
+	  		then (theAlert@post.status = "valid")
+	  		else (theAlert@post = theAlertBackup
+	  			and theAlert@post.status = "valid"
+	  			and theAlerts@post = (theAlerts.excluding(theAlert)).including(theAlert@post)
+	  		)
+	  		endif
+	  		self.rnActor.rnInterfaceIN^ieValidateAlert(theAlert.id)}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

@@ -1,0 +1,67 @@
+package icrash.environment.operations.actAdministrator.outactAdministrator.oeAddHospital {
+
+import lu.uni.lassy.messir.libraries.primitives
+import lu.uni.lassy.messir.libraries.math
+import lu.uni.lassy.messir.libraries.string
+import lu.uni.lassy.messir.libraries.calendar
+import icrash.concepts.primarytypes.datatypes
+import icrash.concepts.primarytypes.classes
+import icrash.environment
+
+	Operation Model {
+
+		operation: icrash.environment.actAdministrator.outactAdministrator.oeAddHospital(AdtHospitalID:dtHospitalID, 
+			AdtGPSLocation:dtGPSLocation
+		):ptBoolean{
+		// include below the specification information (pre,post or ocl or prolog)
+		
+		preP {
+			let TheSystem: ctState in
+  			let TheActor:actAdministrator in
+  
+			self.rnActor.rnSystem = TheSystem
+			and self.rnActor = TheActor
+  
+			/* PreP01 */
+			and TheSystem.vpStarted = true
+			/* PreP02 */
+			and TheActor.rnctAuthenticated.vpIsLogged = true
+		}
+		
+		preF{
+			let TheSystem: ctState in
+ 			let TheActor:actAdministrator in
+  			let TheHospitals:Bag(ctHospital) in
+  
+  			self.rnActor.rnSystem = TheSystem
+  			and self.rnActor = TheActor
+			/* PreF01 */
+  			and TheSystem.rnctCoordinator->select(id.eq(AdtHospitalID)) = TheHospitals
+			and TheHospitals->isEmpty() = true
+		}
+		
+		postF{
+			let TheSystem: ctState in
+  			let TheActor:actAdministrator in
+  			let ThectHospital: ctHospital in
+  			let TheactHospital: actHospital in
+  
+			self.rnActor.rnSystem = TheSystem
+			and self.rnActor = TheActor
+			
+			and TheactHospital.init()
+			
+			and ThectHospital.init(AdtHospitalID, AdtGPSLocation)
+			
+			and TheactHospital@post.rnctHospital = ThectHospital
+			
+			and ThectHospital@post.rnactHospital = TheactHospital
+			
+			and TheActor.rnInterfaceIN^ieHospitalAdded()
+		}
+		
+		postP{true}
+		
+		}
+	}
+}

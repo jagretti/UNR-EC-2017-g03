@@ -22,6 +22,9 @@ icrash.environment.actCoordinator.outactCoordinator.oeValidateAlert
 //postFunctional descriptions
 @postF 
 "the ctAlert class instance having the provided id is considered as valid in the post state and the coordinator actor is informed about the satisfaction of its request."
+@postF
+"If the hash of the actual alert it is not equal to the hash of the backup, then the actual alert its replaced 
+by the backup alert, because the integrity has been corrupted"
 @endPostF
 
 //postProtocol descriptions

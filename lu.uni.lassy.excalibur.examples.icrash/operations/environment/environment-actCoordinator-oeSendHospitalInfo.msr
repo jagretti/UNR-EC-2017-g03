@@ -10,8 +10,8 @@ import icrash.environment
 
 	Operation Model {
 
-		operation: icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo(AdtGPSLocation:dtGPSLocation, AdtQtyVictims:dtQtyVictims,
-			AetSeverity:etSeverity, AdtCrisisID:dtCrisisID):ptBoolean{
+		operation: icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo(AdtHospitalInfo: dtHospitalInfo, 
+			AdtCrisisID:dtCrisisID):ptBoolean{
 		// include below the specification information (pre,post or ocl or prolog)
 		
 		preP {
@@ -45,7 +45,7 @@ import icrash.environment
 			in
 				self.rnActor.rnSystem = TheSystem
 				TheSystem.rnctHospital = TheHospitals
-				TheHospitals -> forAll(h:ctHospital | h.attLocation.isNearTo(AdtGPSLocation) and h.rnactHospital.rnInterfaceIN^ieSendHospitalInfo(AdtGPSLocation,AdtQtyVictims,AetSeverity))
+				TheHospitals -> forAll(h:ctHospital | h.attLocation.isNearTo(AdtHospitalInfo.location) and h.rnactHospital.rnInterfaceIN^ieSendHospitalInfo(AdtHospitalInfo))
 		}
 		
 		postP{true}

@@ -1,0 +1,8 @@
+/*
+@author jose
+@date Sun Oct 15 20:48:43 ART 2017
+*/
+
+
+@@Instance Use Case Subfunction usecases.ucioeSendHospitalInfo.ucioeSendHospitalInfo
+@description "Instance of a Coordinator sending info to the hospital"

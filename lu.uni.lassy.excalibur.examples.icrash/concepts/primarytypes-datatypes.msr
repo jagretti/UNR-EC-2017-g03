@@ -70,9 +70,14 @@ import icrash.concepts.primarytypes.classes
 				constants["low","medium","high"]
 				operation is():ptBoolean
 			}
-			datatype dtHash {
-				operation getHash(ActAlert: ctAlert): dtString
-				operation isEqual(AdtHash: dtHash): ptBoolean
+			datatype dtHash extends dtString {
+				operation is(): ptBoolean
+			}
+			datatype dtHospitalInfo {
+				attribute location: dtGPSLocation
+				attribute qtyVictims: dtQtyVictims
+				attribute severity: etSeverity
+				operation is(): ptBoolean
 			}
 		}
 	}

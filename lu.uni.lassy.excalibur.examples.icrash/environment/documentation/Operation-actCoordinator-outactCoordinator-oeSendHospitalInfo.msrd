@@ -8,13 +8,7 @@
 icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo
 //parameters
 @parameter
-icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtGPSLocation
-""
-@parameter
-icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtQtyVictims
-""
-@parameter
-icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AetSeverity
+icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtHospitalInfo
 ""
 @parameter
 icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtCrisisID

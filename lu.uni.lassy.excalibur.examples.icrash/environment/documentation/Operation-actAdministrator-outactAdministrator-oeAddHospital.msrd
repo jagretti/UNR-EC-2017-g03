@@ -9,10 +9,10 @@ icrash.environment.actAdministrator.outactAdministrator.oeAddHospital
 //parameters
 @parameter
 icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtHospitalID
-""
+"The ID of the hospital to add to the system"
 @parameter
 icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtGPSLocation
-""
+"The localization of the hospital to add"
 @endParameters
 
 @description "

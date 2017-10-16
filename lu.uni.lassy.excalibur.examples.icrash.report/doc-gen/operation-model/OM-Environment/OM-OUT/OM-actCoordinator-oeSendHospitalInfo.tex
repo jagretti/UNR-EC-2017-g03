@@ -8,31 +8,77 @@ The \msrcode{oeSendHospitalInfo} operation has the following properties:
 	\begin{operationmodel}
 	\addheading{Operation}
 	\adddoublerow{oeSendHospitalInfo}{
+	The coordinators send selected information to all hospitals that are near of alert's location
 	 }
 
 	\addrowheading{Parameters}
-	\addnumbereddoublerow{}{AdtGPSLocation: dtGPSLocation}{} 
-	\addnumbereddoublerow{}{AdtQtyVictims: dtQtyVictims}{} 
-	\addnumbereddoublerow{}{AetSeverity: etSeverity}{} 
+	\addnumbereddoublerow{}{AdtHospitalInfo: dtHospitalInfo}{} 
+	\addnumbereddoublerow{}{AdtCrisisID: dtCrisisID}{} 
 
 	\addrowheading{Return type}
 	\addsinglerow{ptBoolean}
 
 	\addrowheading{Pre-Condition (protocol)}
-	\addnumberedsinglerow{PreP}{ }
+	\addnumberedsinglerow{PreP}{ The vpStarted is true}
 		
 	\addrowheading{Pre-Condition (functional)}
-	\addnumberedsinglerow{PreF}{ }
+	\addnumberedsinglerow{PreF}{The actCoordinator have the crisis whose information he wants to share}
 
 	\addrowheading{Post-Condition (functional)}
-	\addnumberedsinglerow{PostF}{ }
+	\addnumberedsinglerow{PostF}{ All the actHospital that are near of the alert's location, receive the corresponding information}
 
 	\addrowheading{Post-Condition (protocol)}
-	\addnumberedsinglerow{PostP}{ }
+	\addnumberedsinglerow{PostP}{ True }
 	\end{operationmodel}
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeSendHospitalInfo-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeSendHospitalInfo}.},label=OM-actCoordinator-oeSendHospitalInfo-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let
+					TheSystem: ctState
+				in
+					self.rnActor.rnSystem = TheSystem
+					TheSystem.vpStarted = true}
+	
+	/* Pre Functional:*/
+	preF{let
+					TheSystem: ctState,
+					TheCrises: Set(ctCrisis),
+					TheCrisis: ctCrisis,
+					TheActCoordinator : actCoordinator,
+					TheCtCoordinator: ctCoordinator,
+					TheHandledCrisis: Set(ctCrisis)
+				in
+					self.rnActor.rnSystem = TheSystem
+					TheActCoordinator = self.rnActor
+					TheActCoordinator.rnctCoordinator = TheCtCoordinator
+					TheCtCoordinator.rnHandled = TheHandledCrisis
+					TheHandledCrisis -> exists (c:ctCrisis | c.id = AdtCrisisID)}
+	
+	/* Post Functional:*/ 
+	postF{let 
+					TheSystem: ctState,
+					TheHospitals: Set(ctHospital)
+				in
+					self.rnActor.rnSystem = TheSystem
+					TheSystem.rnctHospital = TheHospitals
+					TheHospitals -> forAll(h:ctHospital | h.attLocation.isNearTo(AdtHospitalInfo.location) and h.rnactHospital.rnInterfaceIN^ieSendHospitalInfo(AdtHospitalInfo))}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

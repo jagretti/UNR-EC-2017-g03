@@ -26,6 +26,37 @@ The \msrcode{init} operation has the following properties:
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-ctAdministrator-init-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{init}.},label=OM-ctAdministrator-init-MCL-LST]
+
+	
+	
+	/* Post Functional:*/ 
+	postF{if
+	(
+	let Self:ctAdministrator in
+	/* Post F01 */
+	Self.login(Alogin)
+	and Self.pwd = Apwd
+	and Self.vpIsLogged = false
+	
+	/* Post F02 */
+	and (Self.oclIsNew and self = Self)
+	)
+	then (result = true)
+	else (result = false)
+	endif}
+	
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

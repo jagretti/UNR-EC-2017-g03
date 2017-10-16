@@ -1,0 +1,10 @@
+/*
+@author jose
+@date Sun Oct 15 20:04:49 ART 2017
+*/
+
+
+@@view uc-oeAddHospital
+@model Use-Case icrash.usecases.subfunctions.oeAddHospital 
+@description "The administrator add a new Hospital to the system"
+@caption ""

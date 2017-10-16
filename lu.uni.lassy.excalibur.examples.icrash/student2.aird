@@ -483,6 +483,20 @@
   <semanticResources>documentation/View-cm-view8.msrd</semanticResources>
   <semanticResources>environment/documentation/Operation-actAdministrator-outactAdministrator-oeDeleteHospital.msrd</semanticResources>
   <semanticResources>operations/environment/environment-actAdministrator-oeDeleteHospital.msr</semanticResources>
+  <semanticResources>usecases/usecaseinstance-oeSendHospitalInfo-ucioeSendHospitalInfo.msr</semanticResources>
+  <semanticResources>documentation/View-uci-ucioeSendHospitalInfo.msrd</semanticResources>
+  <semanticResources>documentation/View-uc-oeAddHospital.msrd</semanticResources>
+  <semanticResources>usecases/usecaseinstance-oeAddHospital-ucioeAddHospital.msr</semanticResources>
+  <semanticResources>usecases/documentation/UseCaseInstance-ucioeAddHospital.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCaseInstance-ucioeSendHospitalInfo.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-oeDeleteHospital.msrd</semanticResources>
+  <semanticResources>documentation/View-uci-ucioeAddHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Association-assctHospitalactHospital.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctAlertAC-init.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-ctAlertBackup-init.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-dtHash-is.msrd</semanticResources>
+  <semanticResources>concepts/documentation/PrimaryType-Datatype-dtHospitalInfo.msrd</semanticResources>
+  <semanticResources>concepts/documentation/Operation-dtHospitalInfo-is.msrd</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_VxVZ4PWqEeSOM9Kfym77Zg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
   </ownedViews>

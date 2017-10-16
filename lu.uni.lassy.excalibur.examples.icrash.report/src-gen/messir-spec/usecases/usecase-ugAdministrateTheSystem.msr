@@ -13,20 +13,26 @@ package icrash.usecases.ugAdministrateTheSystem {
 			reuse ugSecurelyUseSystem[1..*]
 			reuse oeAddCoordinator[1..*]
 			reuse oeDeleteCoordinator[0..*]
+			reuse oeAddHospital[0..*]
+			reuse oeDeleteHospital[0..*]
 			
 			step a: actAdministrator 
-			     executes ugSecurelyUseSystem
+			    executes ugSecurelyUseSystem
 			step b: actAdministrator 
-			     executes oeAddCoordinator
+			    executes oeAddCoordinator
 			step c: actAdministrator
-			     executes oeDeleteCoordinator
+			    executes oeDeleteCoordinator
+			step d: actAdministrator
+				executes oeAddHospital
+			step e: actAdministrator
+				executes oeDeleteHospital
 			
 			ordering constraint 
 			   "steps (a) (b) and (c) executions are interleaved 
-          (steps (b) and (c) have their protocol constrained 
+          (steps (b) (c) (d) and (e) have their protocol constrained 
            by steps of (a))."
       ordering constraint 
-          "steps (a) (b) and (c) can be executed multiple times."
+          "steps (a) (b) (c) (d) and (e) can be executed multiple times."
 		}
 	}
 }

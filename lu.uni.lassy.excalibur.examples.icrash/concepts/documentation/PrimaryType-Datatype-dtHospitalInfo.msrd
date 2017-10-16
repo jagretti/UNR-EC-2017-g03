@@ -1,0 +1,22 @@
+/*
+@author jose
+@date Mon Oct 16 19:14:32 ART 2017
+*/
+
+
+@@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtHospitalInfo
+@description "The Information that is send to the hospitals that are near to the crisis"
+@attribute
+icrash.concepts.primarytypes.datatypes.dtHospitalInfo.location
+"The location of the crisis"
+@attribute
+icrash.concepts.primarytypes.datatypes.dtHospitalInfo.qtyVictims
+"The estimated number of victims"
+@attribute
+icrash.concepts.primarytypes.datatypes.dtHospitalInfo.severity
+"The estimated severity of the crisis"
+@endAttributes
+@operation
+icrash.concepts.primarytypes.datatypes.dtHospitalInfo.is
+"none"
+@endOperations

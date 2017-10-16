@@ -1,0 +1,37 @@
+/*
+@author jose
+@date Sun Oct 15 21:20:41 ART 2017
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.classes.ctAlertBackup.init
+//parameters
+@parameter
+icrash.concepts.primarytypes.classes.ctAlertBackup.init.Aid
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctAlertBackup.init.Astatus
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctAlertBackup.init.Alocation
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctAlertBackup.init.Ainstant
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctAlertBackup.init.Acomment
+""
+@parameter
+icrash.concepts.primarytypes.classes.ctAlertBackup.init.AdtHash
+""
+@endParameters
+
+@description "
+used to initialize the current object as a new instance of the ctAlertBackup type. "
+//postFunctional descriptions
+@postF 
+"true iff the system poststate includes the current object as a new ctAlertBackup instance having its attributes equal to the ones provided as parameters. "
+@endPostF
+//example
+@example" "

@@ -6,10 +6,7 @@
 
 @@Primary Type Datatype icrash.concepts.primarytypes.datatypes.dtHash
 @description "This type is used to have a Hash of an alert, to check data integrity"
-@operation
-icrash.concepts.primarytypes.datatypes.dtHash.getHash
-""
-@operation
-icrash.concepts.primarytypes.datatypes.dtHash.isEqual
-""
+@operation icrash.concepts.primarytypes.datatypes.dtCrisisID.is
+"used to determine which strings are considered as valid crisis identifiers."
+
 @endOperations

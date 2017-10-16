@@ -4,6 +4,7 @@ import lu.uni.lassy.messir.libraries.primitives
 import lu.uni.lassy.messir.libraries.string
 import lu.uni.lassy.messir.libraries.math
 import lu.uni.lassy.messir.libraries.calendar
+import icrash.concepts.primarytypes.classes
 
 	Concept Model {
 		
@@ -68,6 +69,15 @@ import lu.uni.lassy.messir.libraries.calendar
 			enum etSeverity {
 				constants["low","medium","high"]
 				operation is():ptBoolean
+			}
+			datatype dtHash extends dtString {
+				operation is(): ptBoolean
+			}
+			datatype dtHospitalInfo {
+				attribute location: dtGPSLocation
+				attribute qtyVictims: dtQtyVictims
+				attribute severity: etSeverity
+				operation is(): ptBoolean
 			}
 		}
 	}

@@ -36,12 +36,17 @@ import lu.uni.lassy.messir.libraries.calendar
 											
 				operation oeDeleteCoordinator(
 											AdtCoordinatorID:dtCoordinatorID ):ptBoolean
+				operation oeAddHospital(AdtHospitalID: dtHospitalID, 
+					AdtGPSLocation: dtGPSLocation): ptBoolean
+				operation oeDeleteHospital(AdtHospitalID: dtHospitalID): ptBoolean
 			}
 			
 			input interface inactAdministrator{
 				
 				operation ieCoordinatorAdded():ptBoolean
 				operation ieCoordinatorDeleted():ptBoolean
+				operation ieHospitalAdded(AdtHospitalID: dtHospitalID):ptBoolean
+				operation ieHospitalDeleted(AdtHospitalID: dtHospitalID):ptBoolean
 	 		}
 		}
 		
@@ -71,8 +76,7 @@ import lu.uni.lassy.messir.libraries.calendar
                                           AetCrisisType:etCrisisType
                                           ):ptBoolean
 				operation oeValidateAlert(AdtAlertID:dtAlertID ):ptBoolean
-				operation oeSendHospitalInfo(AdtGPSLocation:dtGPSLocation, AdtQtyVictims:dtQtyVictims,
-  	AetSeverity:etSeverity):ptBoolean
+				operation oeSendHospitalInfo(AdtHospitalInfo: dtHospitalInfo, AdtCrisisID:dtCrisisID):ptBoolean
 			}
 			
 			input interface inactCoordinator{
@@ -80,6 +84,7 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation ieSendACrisis(ActCrisis:ctCrisis ):ptBoolean
 				operation ieSendAlerts(ActAlerts: Set(ctAlert)):ptBoolean
 				operation ieValidateAlert(AdtAlertID: dtAlertID): ptBoolean
+				operation ieInvalidateAlert(AdtAlertID: dtAlertID): ptBoolean
 	 		}
 		}
 		
@@ -135,8 +140,7 @@ import lu.uni.lassy.messir.libraries.calendar
 			operation init():ptBoolean
 		
 			input interface inactHospital {
-				operation ieSendHospitalInfo(AdtGPSLocation:dtGPSLocation, AdtQtyVictims:dtQtyVictims,
-  	AetSeverity:etSeverity):ptBoolean
+				operation ieSendHospitalInfo(AdtHospitalInfo: dtHospitalInfo):ptBoolean
 			}
 			output interface outactHospital {
 			}

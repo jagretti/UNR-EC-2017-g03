@@ -6,9 +6,8 @@
 
 @@Use Case Subfunction icrash.usecases.subfunctions.oeSendHospitalInfo
 @description "send selected information to near hospitals"
-@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AdtGPSLocation ""
-@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AdtQtyVictims ""
-@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AetSeverity ""
+@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AdtHospitalInfo "The selected information to the hospitals"
+@parameter icrash.usecases.subfunctions.oeSendHospitalInfo.AdtCrisisID "The crisis that the information belongs to"
 @endParameters
 @protocolCondition
 "The coordinator is already logged in

@@ -39,12 +39,14 @@ import lu.uni.lassy.messir.libraries.calendar
 				attribute location: dtGPSLocation
 				attribute instant: dtDateAndTime
 				attribute comment: dtComment
+				attribute hash: dtHash
 				
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ):ptBoolean
+										Acomment:dtComment ,
+										AdtHash: dtHash):ptBoolean
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
 			}
 	
@@ -53,7 +55,8 @@ import lu.uni.lassy.messir.libraries.calendar
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ):ptBoolean
+										Acomment:dtComment ,
+										AdtHash: dtHash):ptBoolean
 			}
 			
 			class ctAlertBackup role rnctAlertBackup cardinality [0..*] extends ctAlertAC {
@@ -61,7 +64,8 @@ import lu.uni.lassy.messir.libraries.calendar
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ):ptBoolean
+										Acomment:dtComment ,
+										AdtHash: dtHash):ptBoolean
 			}
 			
 			class ctCrisis role rnctCrisis cardinality [0..*]{

@@ -1,0 +1,11 @@
+/*
+@author jose
+@date Sun Oct 08 16:22:31 ART 2017
+*/
+
+
+@@view uci-ucioeSendHospitalInfo
+@instance Use-Case usecases.ucioeSendHospitalInfo.ucioeSendHospitalInfo 
+@description "Use case instance of a coordinator sending information to near hospital, 
+in this case HECA"
+@caption ""

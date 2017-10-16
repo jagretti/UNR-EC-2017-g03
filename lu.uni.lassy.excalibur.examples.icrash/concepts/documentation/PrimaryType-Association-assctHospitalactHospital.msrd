@@ -1,0 +1,8 @@
+/*
+@author jose
+@date Sun Oct 15 21:20:38 ART 2017
+*/
+
+
+@@Primary Type Association icrash.concepts.primarytypes.associations.assctHospitalactHospital
+@description "The association between a ctHospital (system) and the actuals Hospitals"

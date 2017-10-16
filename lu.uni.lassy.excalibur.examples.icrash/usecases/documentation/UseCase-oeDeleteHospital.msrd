@@ -1,0 +1,24 @@
+/*
+@author jose
+@date Sun Oct 15 20:49:11 ART 2017
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeDeleteHospital
+@description "A coordinator delete a hospital from the system"
+@protocolCondition
+"
+"
+@endProtocolConditions
+@preCondition
+"
+"
+@endPreConditions
+@postCondition
+"
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

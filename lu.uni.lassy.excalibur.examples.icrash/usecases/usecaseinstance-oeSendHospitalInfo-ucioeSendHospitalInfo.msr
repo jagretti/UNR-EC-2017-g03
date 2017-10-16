@@ -1,0 +1,15 @@
+package usecases.ucioeSendHospitalInfo {
+	import icrash.usecases.subfunctions
+	import icrash.environment
+
+	Use Case Model {
+
+		use case instance ucioeSendHospitalInfo : subfunction oeSendHospitalInfo{
+			actors {
+				juan: actCoordinator
+				heca: actHospital
+			} 
+			ieSendHospitalInfo("10.4,25.8", "4", "medium") returned to heca
+		}
+	}
+}

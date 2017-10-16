@@ -1,0 +1,14 @@
+package usecases.ucioeAddHospital {
+	import icrash.usecases.subfunctions
+	import icrash.environment
+
+	Use Case Model {
+
+		use case instance ucioeAddHospital : subfunction oeAddHospital{
+			actors {
+				jose: actAdministrator
+			}
+			ieHospitalAdded("HECA") returned to jose
+		}
+	}
+}

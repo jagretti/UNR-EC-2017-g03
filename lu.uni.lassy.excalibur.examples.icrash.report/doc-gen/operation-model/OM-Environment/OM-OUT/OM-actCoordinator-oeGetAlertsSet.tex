@@ -31,6 +31,43 @@ The \msrcode{oeGetAlertsSet} operation has the following properties:
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeGetAlertsSet-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeGetAlertsSet}.},label=OM-actCoordinator-oeGetAlertsSet-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  		let TheActor:actAuthenticated in
+	  		self.rnActor.rnSystem = TheSystem
+	  		and self.rnActor = TheActor
+	  
+			/* PreP01 */
+	  		and TheSystem.vpStarted = true
+			/* PreP02 */
+	  		and TheActor.rnctAuthenticated.vpIsLogged = false}
+	
+	/* Pre Functional:*/
+	preF{true}
+	
+	/* Post Functional:*/ 
+	postF{let 
+				theSystem: ctState = self.rnActor.rnSystem,
+				theAlerts: Set(ctAlert) = Set{}
+			in
+				theAlerts = theSystem.rnctAlert-> select(a:ctAlert | a.status = AetAlertStatus) and
+				self.rnActor.rnInterfaceIN^ieSendAlerts(theAlerts)}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

@@ -1,0 +1,8 @@
+/*
+@author jose
+@date Sun Oct 15 20:34:59 ART 2017
+*/
+
+
+@@Instance Use Case Subfunction usecases.ucioeAddHospital.ucioeAddHospital
+@description "The Administrator Jose add the Hospital with ID 'HECA' to the system"

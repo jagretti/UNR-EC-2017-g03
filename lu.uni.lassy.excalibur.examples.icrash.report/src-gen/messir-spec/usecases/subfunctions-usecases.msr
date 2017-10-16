@@ -136,14 +136,25 @@ import icrash.environment
     }
   }
   //--------------------------------------------------
-  use case system subfunction oeSendHospitalInfo(AdtGPSLocation:dtGPSLocation, AdtQtyVictims:dtQtyVictims,
-  	AetSeverity:etSeverity) {
+  use case system subfunction oeSendHospitalInfo(AdtHospitalInfo: dtHospitalInfo, AdtCrisisID: dtCrisisID) {
 	actor actCoordinator[primary, active]
 	actor actHospital[secondary, passive, multiple]
 	returned messages {
-		ieSendHospitalInfo(AdtGPSLocation, AdtQtyVictims, AetSeverity) returned to actHospital
+		ieSendHospitalInfo(AdtHospitalInfo) returned to actHospital
  	}
   }
+	use case system subfunction oeAddHospital(AdtHospitalID: dtHospitalID, AdtGPSLocation:dtGPSLocation) {
+		actor actAdministrator[primary, active]
+		returned messages {
+			ieHospitalAdded(AdtHospitalID) returned to actAdministrator
+		}
+	}
+	use case system subfunction oeDeleteHospital(AdtHospitalID: dtHospitalID) {
+		actor actAdministrator[primary, active]
+		returned messages {
+			ieHospitalDeleted(AdtHospitalID) returned to actAdministrator
+		}		
+	}
 	}
 
 }
