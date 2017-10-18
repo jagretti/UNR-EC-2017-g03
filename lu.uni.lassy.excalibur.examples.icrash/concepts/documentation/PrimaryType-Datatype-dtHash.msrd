@@ -9,4 +9,6 @@
 @operation icrash.concepts.primarytypes.datatypes.dtCrisisID.is
 "used to determine which strings are considered as valid crisis identifiers."
 
+@operation icrash.concepts.primarytypes.datatypes.dtHash.is
+" "
 @endOperations

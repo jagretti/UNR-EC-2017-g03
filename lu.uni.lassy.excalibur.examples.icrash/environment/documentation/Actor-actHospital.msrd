@@ -6,6 +6,9 @@
 
 @@Actor icrash.environment.actHospital
 @description "represents a hospital in some place"
+@operation icrash.environment.actHospital.init
+" "
+@endOperations
 //input events
 @inputEvent
 icrash.environment.actHospital.inactHospital.ieSendHospitalInfo
@@ -14,4 +17,3 @@ icrash.environment.actHospital.inactHospital.ieSendHospitalInfo
 
 @endInputEvents
 //output events
-

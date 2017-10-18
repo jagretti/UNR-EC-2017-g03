@@ -11,6 +11,9 @@
 	
 	
 	
+	\addrowheading{Operations}
+	\adddoublerow{\msrcode{init():ptBoolean}}{ }
+	
 	
 
 	\addrowheading{OutputInterfaces}
@@ -41,11 +44,20 @@
 	\addnumbereddoublerow{OUT}{\hypertarget{actCoordinator.outactCoordinator.oeValidateAlert}
 			{\msrcode{oeValidateAlert(AdtAlertID:dtAlertID):ptBoolean}}}
 			{sent to indicate that a specific alert is not a fake.}
+	\addnumbereddoublerow{OUT}{\hypertarget{actCoordinator.outactCoordinator.oeSendHospitalInfo}
+			{\msrcode{oeSendHospitalInfo(AdtHospitalInfo:dtHospitalInfo, AdtCrisisID:dtCrisisID):ptBoolean}}}
+			{ }
 	
 	\addrowheading{InputInterfaces}
 	\addnumbereddoublerow{IN}{\msrcode{ieSendAnAlert(ActAlert:ctAlert):ptBoolean}}
 							 {allows for receiving a requested ctAlert instance.}
 	\addnumbereddoublerow{IN}{\msrcode{ieSendACrisis(ActCrisis:ctCrisis):ptBoolean}}
 							 {allows for receiving a requested ctCrisis instance.}
+	\addnumbereddoublerow{IN}{\msrcode{ieSendAlerts(ActAlerts:Set(ctAlert)):ptBoolean}}
+							 { }
+	\addnumbereddoublerow{IN}{\msrcode{ieValidateAlert(AdtAlertID:dtAlertID):ptBoolean}}
+							 { }
+	\addnumbereddoublerow{IN}{\msrcode{ieInvalidateAlert(AdtAlertID:dtAlertID):ptBoolean}}
+							 { }
 	
 \end{actortable}

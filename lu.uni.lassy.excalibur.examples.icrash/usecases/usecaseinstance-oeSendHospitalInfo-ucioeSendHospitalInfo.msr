@@ -4,12 +4,12 @@ package usecases.ucioeSendHospitalInfo {
 
 	Use Case Model {
 
-		use case instance ucioeSendHospitalInfo : subfunction oeSendHospitalInfo{
+		use case instance ucioeSendHospitalInfo : subfunction oeSendHospitalInfo("49.627675:6.159590", "4", "medium","24"){
 			actors {
-				juan: actCoordinator
-				heca: actHospital
+				Juan: actCoordinator
+				HECA: actHospital
 			} 
-			ieSendHospitalInfo("10.4,25.8", "4", "medium") returned to heca
+			ieSendHospitalInfo("49.627675:6.159590", "4", "medium") returned to HECA
 		}
 	}
 }

@@ -6,6 +6,9 @@
 
 @@Use Case Subfunction icrash.usecases.subfunctions.oeDeleteHospital
 @description "A coordinator delete a hospital from the system"
+@parameter icrash.usecases.subfunctions.oeDeleteHospital.AdtHospitalID
+" "
+@endParameters
 @protocolCondition
 "
 "

@@ -10,6 +10,8 @@ icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital
 @parameter
 icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital.AdtHospitalID
 ""
+@parameter icrash.environment.operations.actAdministrator.outactAdministrator.oeDeleteHospital.operationmodel.icrash.environment.actAdministrator.outactAdministrator.oeDeleteHospital.AdtHospitalID
+" "
 @endParameters
 
 @description "Operation to delete a Hospital from the system

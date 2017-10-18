@@ -11,6 +11,9 @@
 	
 	
 	
+	\addrowheading{Operations}
+	\adddoublerow{\msrcode{init():ptBoolean}}{ }
+	
 	
 
 	\addrowheading{OutputInterfaces}
@@ -20,11 +23,21 @@
 	\addnumbereddoublerow{OUT}{\hypertarget{actAdministrator.outactAdministrator.oeDeleteCoordinator}
 			{\msrcode{oeDeleteCoordinator(AdtCoordinatorID:dtCoordinatorID):ptBoolean}}}
 			{sent to delete an existing coordinator in the system's post state and environment's post state.}
+	\addnumbereddoublerow{OUT}{\hypertarget{actAdministrator.outactAdministrator.oeAddHospital}
+			{\msrcode{oeAddHospital(AdtHospitalID:dtHospitalID, AdtGPSLocation:dtGPSLocation):ptBoolean}}}
+			{ }
+	\addnumbereddoublerow{OUT}{\hypertarget{actAdministrator.outactAdministrator.oeDeleteHospital}
+			{\msrcode{oeDeleteHospital(AdtHospitalID:dtHospitalID):ptBoolean}}}
+			{ }
 	
 	\addrowheading{InputInterfaces}
 	\addnumbereddoublerow{IN}{\msrcode{ieCoordinatorAdded():ptBoolean}}
 							 {its reception confirms the creation of the requested coodinator. }
 	\addnumbereddoublerow{IN}{\msrcode{ieCoordinatorDeleted():ptBoolean}}
 							 {its reception confirms the deletion of the requested coodinator. }
+	\addnumbereddoublerow{IN}{\msrcode{ieHospitalAdded(AdtHospitalID:dtHospitalID):ptBoolean}}
+							 { }
+	\addnumbereddoublerow{IN}{\msrcode{ieHospitalDeleted(AdtHospitalID:dtHospitalID):ptBoolean}}
+							 { }
 	
 \end{actortable}

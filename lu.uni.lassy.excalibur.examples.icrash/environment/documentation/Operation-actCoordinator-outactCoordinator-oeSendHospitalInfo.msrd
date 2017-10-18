@@ -13,6 +13,10 @@ icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtHospit
 @parameter
 icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtCrisisID
 ""
+@parameter icrash.environment.operations.actCoordinator.outactCoordinator.oeSendHospitalInfo.operationmodel.icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtHospitalInfo
+" "
+@parameter icrash.environment.operations.actCoordinator.outactCoordinator.oeSendHospitalInfo.operationmodel.icrash.environment.actCoordinator.outactCoordinator.oeSendHospitalInfo.AdtCrisisID
+" "
 @endParameters
 
 @description "

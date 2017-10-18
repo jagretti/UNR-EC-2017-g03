@@ -13,6 +13,10 @@ icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtHospita
 @parameter
 icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtGPSLocation
 "The localization of the hospital to add"
+@parameter icrash.environment.operations.actAdministrator.outactAdministrator.oeAddHospital.operationmodel.icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtHospitalID
+" "
+@parameter icrash.environment.operations.actAdministrator.outactAdministrator.oeAddHospital.operationmodel.icrash.environment.actAdministrator.outactAdministrator.oeAddHospital.AdtGPSLocation
+" "
 @endParameters
 
 @description "

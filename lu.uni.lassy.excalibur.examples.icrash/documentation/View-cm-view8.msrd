@@ -10,4 +10,4 @@
 @sublevel Primary Class
 @number 8
 @description "A class to represent a Hospital in the System"
-@caption ""
+@caption "The local view of a ctHospital primary type"

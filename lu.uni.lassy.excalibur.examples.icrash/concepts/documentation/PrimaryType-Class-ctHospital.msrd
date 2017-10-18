@@ -9,4 +9,6 @@
 @attribute
 icrash.concepts.primarytypes.classes.ctHospital.attLocation
 ""
+@attribute icrash.concepts.primarytypes.classes.ctHospital.id
+" "
 @endAttributes

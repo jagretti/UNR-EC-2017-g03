@@ -7,4 +7,6 @@
 "used to initialize the current object as a new instance of the ctAlert type."
 
 
+@operation icrash.concepts.primarytypes.classes.ctAlert.init
+" "
 @endOperations

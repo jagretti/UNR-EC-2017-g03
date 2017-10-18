@@ -1,0 +1,10 @@
+/*
+@author jose
+@date Mon Oct 16 20:12:36 ART 2017
+*/
+
+
+@@view uc-oeSendHospitalInfo
+@model Use-Case icrash.usecases.subfunctions.oeSendHospitalInfo 
+@description "The coordinator send the selected information to near hospitals"
+@caption ""
