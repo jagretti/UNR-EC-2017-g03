@@ -39,7 +39,6 @@ import lu.uni.lassy.messir.libraries.calendar
 				attribute location: dtGPSLocation
 				attribute instant: dtDateAndTime
 				attribute comment: dtComment
-				attribute hash: dtHash
 				
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
@@ -64,8 +63,7 @@ import lu.uni.lassy.messir.libraries.calendar
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ,
-										AdtHash: dtHash):ptBoolean
+										Acomment:dtComment):ptBoolean
 			}
 			
 			class ctCrisis role rnctCrisis cardinality [0..*]{

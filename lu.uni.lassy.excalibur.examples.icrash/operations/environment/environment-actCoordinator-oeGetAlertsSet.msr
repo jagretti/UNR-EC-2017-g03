@@ -25,7 +25,7 @@ Operation Model {
 		/* PreP01 */
   		and TheSystem.vpStarted = true
 		/* PreP02 */
-  		and TheActor.rnctAuthenticated.vpIsLogged = false
+  		and TheActor.rnctAuthenticated.vpIsLogged = true
 	}
 	
 	preF {true}

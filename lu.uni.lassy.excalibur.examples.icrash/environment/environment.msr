@@ -85,6 +85,7 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation ieSendAlerts(ActAlerts: Set(ctAlert)):ptBoolean
 				operation ieValidateAlert(AdtAlertID: dtAlertID): ptBoolean
 				operation ieInvalidateAlert(AdtAlertID: dtAlertID): ptBoolean
+				operation ieSetCrisisType(AdtCrisisID: dtCrisisID): ptBoolean
 	 		}
 		}
 		
