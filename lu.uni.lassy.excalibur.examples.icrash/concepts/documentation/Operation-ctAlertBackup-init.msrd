@@ -22,9 +22,6 @@ icrash.concepts.primarytypes.classes.ctAlertBackup.init.Ainstant
 @parameter
 icrash.concepts.primarytypes.classes.ctAlertBackup.init.Acomment
 ""
-@parameter
-icrash.concepts.primarytypes.classes.ctAlertBackup.init.AdtHash
-""
 @endParameters
 
 @description "

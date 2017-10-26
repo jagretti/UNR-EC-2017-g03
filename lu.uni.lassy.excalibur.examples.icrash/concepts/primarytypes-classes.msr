@@ -44,12 +44,13 @@ import lu.uni.lassy.messir.libraries.calendar
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ,
-										AdtHash: dtHash):ptBoolean
+										Acomment:dtComment
+										):ptBoolean
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
 			}
 	
 			class ctAlert role rnctAlert cardinality [0..*] extends ctAlertAC {
+				attribute hash: dtHash
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,

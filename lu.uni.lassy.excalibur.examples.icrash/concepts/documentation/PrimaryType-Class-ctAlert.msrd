@@ -3,10 +3,10 @@
 @description
 "Used to model crisis alerts sent by any human having communication capability using communication companies belonging to the system's environment"
 
-@operation icrash.concepts.primarytypes.classes.ctAlertAC.init
-"used to initialize the current object as a new instance of the ctAlert type."
-
-
+@attribute
+icrash.concepts.primarytypes.classes.ctAlert.hash
+"Hash to preserve the integrity of the alerts"
+@endAttributes
 @operation icrash.concepts.primarytypes.classes.ctAlert.init
 " "
 @endOperations
