@@ -57,6 +57,8 @@ else the pre-state one is chosen
 "
 @postF 
 "and this specified ctHuman is related to the new alert thus indicating he has signed the alert. "
+@postF
+"A new ctAlertBackup is created, with the same attributes that the ctAlert has"
 
 @endPostF
 

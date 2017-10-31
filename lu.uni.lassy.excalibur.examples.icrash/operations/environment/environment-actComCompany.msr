@@ -59,6 +59,7 @@ postF{
  let  AptStringMessage:ptString in
  let  AdtSMS:dtSMS in
  let  AdtAlertID:dtAlertID in
+ let  ActAlertBackup:ctAlertBackup in
  
   self.rnActor.rnSystem = TheSystem
   and self.rnActor = TheactComCompany
@@ -80,7 +81,9 @@ and ActAlert.init(AdtAlertID,
                   AetAlertStatus,
                   AdtGPSLocation,
                   AAlertInstant,
-                  AdtComment)
+                  AdtComment) // Duda, preguntar si lleva el hash el init
+
+and ActAlert@post.hash = ActAlert.hash.calculate(AdtAlertID, AdtGPSLocation, AdtComment, AAlertInstant)
       
   /* PostF03 */
 and TheSystem.rnctAlert.select(location.isNearTo(AdtGPSLocation)) = ColctAlertsNearBy
@@ -124,6 +127,13 @@ and if (HumanCol2->msrIsEmpty)
 /* PostF06 */
 AdtSMS.value = 'Your alert has been registered. We will handle it and keep you informed'
 and TheactComCompany.rnInterfaceIN^ieSmsSend(AdtPhoneNumber,AdtSMS)
+
+/* PostF07 */
+and ActAlertBackup.init(AdtAlertID,
+                  AetAlertStatus,
+                  AdtGPSLocation,
+                  AAlertInstant,
+                  AdtComment)
 }
  /* Post Protocol:*/
 /* PostP01 */
