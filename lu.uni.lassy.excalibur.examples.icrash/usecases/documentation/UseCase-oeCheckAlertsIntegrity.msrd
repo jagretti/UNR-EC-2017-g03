@@ -1,0 +1,22 @@
+/*
+@author jose
+@date Wed Nov 01 18:00:08 ART 2017
+*/
+
+
+@@Use Case Subfunction icrash.usecases.subfunctions.oeCheckAlertsIntegrity
+@description "Check all the alerts of the system. If anyone is corrupted, get the backup, and reset 
+all the attributes of it"
+@protocolCondition
+"The system is running, and the administrator is logged in"
+@endProtocolConditions
+@preCondition
+"At least exists one alert in the system"
+@endPreConditions
+@postCondition
+"All the alerts were checked, and if any had an error was replaced"
+@endPostConditions
+@additionalInformation
+"
+none
+"

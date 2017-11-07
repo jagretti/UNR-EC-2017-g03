@@ -155,6 +155,13 @@ import icrash.environment
 			ieHospitalDeleted(AdtHospitalID) returned to actAdministrator
 		}		
 	}
+	use case system subfunction oeCheckAlertsIntegrity() {
+		actor actAdministrator[primary, active]
+		returned messages {
+			ieAllAlertsChecked() returned to actAdministrator
+		}		
+	}
+	
 	}
 
 }

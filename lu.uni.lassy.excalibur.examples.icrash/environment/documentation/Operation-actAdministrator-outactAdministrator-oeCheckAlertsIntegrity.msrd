@@ -1,0 +1,32 @@
+/*
+@author jose
+@date Sun Nov 05 12:05:40 ART 2017
+*/
+
+
+@@Operation
+icrash.environment.actAdministrator.outactAdministrator.oeCheckAlertsIntegrity
+@description "The administrator use this operation to check the integrity of all alerts
+in the system"
+//preProtocol descriptions
+@preP
+"The vpStarted is true"
+@preP
+"ctAuthenticated instance of the administrator is considered logged"
+@endPreP
+//preFunctional descriptions
+@preF
+"it is supposed that there at least exist one ctAlert instance in the system"
+@endPreF
+//postFunctional descriptions
+@postF 
+"All the ctAlerts were checked, and if anyone were corrupt it was reset"
+@postF
+"The administrator actor is informed about the satisfaction of its request"
+@endPostF
+//postProtocol descriptions
+@postP 
+" none "
+@endPostP
+//example
+@example" "
