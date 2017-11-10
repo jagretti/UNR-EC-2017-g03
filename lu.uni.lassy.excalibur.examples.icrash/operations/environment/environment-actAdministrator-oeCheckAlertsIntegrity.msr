@@ -37,14 +37,13 @@ import icrash.environment
 				self.rnActor.rnSystem = TheSystem
 				and TheSystem.rnctAlert = TheAlerts
 				and TheSystem.rnctAlertBackup = TheAlertsBackup
-				and TheAlerts->iterate(a:ctAlert; | if (a.hash = a.hash.calculate()) 
-					then (a) 
-					else (let c:ctAlertBackup in
-							c = TheAlertsBackup->select(b:ctAlertBackup | a.id = b.id)
-							and a@post = c
-					) 
-					endif
-				)
+				and TheAlerts->forAll(a:ctAlert | if (a.hash = a.hash.calculate()) 
+													then (a@post = a) 
+													else (let c:ctAlertBackup in
+														c = TheAlertsBackup->select(b:ctAlertBackup | a.id = b.id)
+														and a@post = c
+													) 
+													endif)
 			}
 			
 			postP{true}

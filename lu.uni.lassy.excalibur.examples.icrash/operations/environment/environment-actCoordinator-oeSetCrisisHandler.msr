@@ -13,6 +13,56 @@ import icrash.environment
 Operation Model {
 
 operation: actCoordinator.outactCoordinator.oeSetCrisisHandler(AdtCrisisID:dtCrisisID):ptBoolean{
+	
+	preP{
+		let theSystem: ctState in
+  		let theActor:actAuthenticated in
+  		self.rnActor.rnSystem = TheSystem
+  		and self.rnActor = TheActor
+  
+		/* PreP01 */
+  		and TheSystem.vpStarted = true
+		/* PreP02 */
+  		and TheActor.rnctAuthenticated.vpIsLogged = true
+	}
+	
+	preF{
+		let TheSystem: ctState in
+		self.rnActor.rnSystem = TheSystem
+		and TheSystem.rnctCrisis->exists(a: ctCrisis | a.id = AdtCrisisID)
+	}
+	
+	postF{
+		let TheSystem: ctState in
+		let TheCrisis: ctCrisis in
+		let TheActor: actCoordinator in
+		let TheOldActor: actCoordinator in
+		let TheAlerts: Set(ctAlert) in
+		let  TheactComCompany:actComCompany in
+		TheSystem = self.rnActor.rnSystem
+		and TheactComCompany = TheSystem.rnactComCompany
+		and TheActor = self.rnActor
+		and TheCrisis = TheSystem.rnctCrisis->any(a: ctCrisis | a.id = AdtCrisisID)
+		and TheCrisis@post.status = 'handled'
+		and TheCrisis@post.rnHandler = TheActor.rnctCoordinator
+		
+		and if (TheCrisis.status = 'handled')
+			then (TheOldActor = TheCrisis.rnHandler
+				and TheOldActor.rnInterfaceIN^ieChangeHandlerCrisis(AdtCrisisID)
+			)
+			else (true)
+			endif
+		and TheAlerts = TheCrisis.rnAlert
+		and TheAlerts->forAll(a: ctAlert | let AHuman: ctHuman in
+										   let AdtSms: dtSMS in
+										   AdtSms = 'The Coordinator of the crisis related to your Alert change'
+										   AHuman = a.rnSignaler
+										   and TheactComCompany.rnInterfaceIN^ieSmsSend(AHuman.id, AdtSms)
+		)
+	}
+	
+	postP{}
+	
 prolog{"src/Operations/Environment/OUT/outactCoordinator-oeSetCrisisHandler.pl"}
 }
 
