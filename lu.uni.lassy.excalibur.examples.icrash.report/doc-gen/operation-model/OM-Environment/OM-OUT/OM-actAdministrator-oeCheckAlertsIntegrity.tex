@@ -1,0 +1,89 @@
+\subsection{Operation Model for oeCheckAlertsIntegrity}
+
+\label{OM-oeCheckAlertsIntegrity}
+
+
+The \msrcode{oeCheckAlertsIntegrity} operation has the following properties:
+
+	\begin{operationmodel}
+	\addheading{Operation}
+	\adddoublerow{oeCheckAlertsIntegrity}{The administrator use this operation to check the integrity of all alerts
+	in the system}
+
+
+	\addrowheading{Return type}
+	\addsinglerow{ptBoolean}
+
+	\addrowheading{Pre-Condition (protocol)}
+	\addnumberedsinglerow{PreP}{The vpStarted is true}
+	\addnumberedsinglerow{PreP}{ctAuthenticated instance of the administrator is considered logged}
+		
+	\addrowheading{Pre-Condition (functional)}
+	\addnumberedsinglerow{PreF}{it is supposed that there at least exist one ctAlert instance in the system}
+
+	\addrowheading{Post-Condition (functional)}
+	\addnumberedsinglerow{PostF}{All the ctAlerts were checked, and if anyone were corrupt it was reset}
+	\addnumberedsinglerow{PostF}{The administrator actor is informed about the satisfaction of its request}
+
+	\addrowheading{Post-Condition (protocol)}
+	\addnumberedsinglerow{PostP}{ none }
+	\end{operationmodel}
+
+
+
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actAdministrator-oeCheckAlertsIntegrity-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeCheckAlertsIntegrity}.},label=OM-actAdministrator-oeCheckAlertsIntegrity-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  				let TheActor: actAdministrator in
+	  
+					self.rnActor.rnSystem = TheSystem
+					and self.rnActor = TheActor
+	  
+					/* PreP01 */
+					and TheSystem.vpStarted = true
+					/* PreP02 */
+					and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{let TheSystem: ctState in
+					self.rnActor.rnSystem = TheSystem
+					and not (TheSystem.rnctAlert->isEmpty())}
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+					let TheAlerts: Set(ctAlert) in
+					let TheAlertsBackup: Set(ctAlertBackup) in
+					self.rnActor.rnSystem = TheSystem
+					and TheSystem.rnctAlert = TheAlerts
+					and TheSystem.rnctAlertBackup = TheAlertsBackup
+					and TheAlerts->forAll(a:ctAlert | if (a.hash = a.hash.calculate()) 
+														then (a@post = a) 
+														else (let c:ctAlertBackup in
+															c = TheAlertsBackup->select(b:ctAlertBackup | a.id = b.id)
+															and a@post = c
+														) 
+														endif)}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
+	
+	
+	
+	
+
+
+
+
+

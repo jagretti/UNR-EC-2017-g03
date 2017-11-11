@@ -32,6 +32,43 @@ The \msrcode{oeGetCrisisSet} operation has the following properties:
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeGetCrisisSet-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeGetCrisisSet}.},label=OM-actCoordinator-oeGetCrisisSet-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  		let TheActor:actAuthenticated in
+	  		self.rnActor.rnSystem = TheSystem
+	  		and self.rnActor = TheActor
+	  
+			/* PreP01 */
+	  		and TheSystem.vpStarted = true
+			/* PreP02 */
+	  		and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{true}
+	
+	/* Post Functional:*/ 
+	postF{let 
+				theSystem: ctState = self.rnActor.rnSystem,
+				theCrisisSet: Set(ctCrisis) = Set{}
+			in
+				theCrisisSet = theSystem.rnctAlert-> select(a:ctCrisis | a.status = AetCrisisStatus)
+				and	theCrisisSet->forAll(a:ctCrisis | self.rnActor.rnInterfaceIN^ieSendACrisis(a))}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

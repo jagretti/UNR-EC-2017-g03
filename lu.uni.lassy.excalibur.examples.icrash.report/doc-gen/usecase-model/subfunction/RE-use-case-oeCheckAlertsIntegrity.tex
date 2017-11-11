@@ -1,0 +1,41 @@
+\subsubsection{subfunction-oeCheckAlertsIntegrity}
+
+\label{RE-use-case-oeCheckAlertsIntegrity}
+
+
+Check all the alerts of the system. If anyone is corrupted, get the backup, and reset 
+all the attributes of it		  
+
+
+\begin{usecase}
+  \addheading{Use-Case Description}
+  \addsingletwocolumnrow{Name}{oeCheckAlertsIntegrity}
+  \addsingletwocolumnrow{Scope}{system}
+  \addsingletwocolumnrow{Level}{subfunction}
+  
+
+\addrowheading{Primary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actAdministrator[active]}}
+
+
+
+\addrowheading{Goal(s) description}
+\addsinglerow{Check all the alerts of the system. If anyone is corrupted, get the backup, and reset 
+all the attributes of it}
+
+\addrowheading{Protocol condition(s)}
+\addnumberedsinglerow{}{The system is running, and the administrator is logged in}
+
+\addrowheading{Pre-condition(s)}
+\addnumberedsinglerow{}{At least exists one alert in the system}
+
+\addrowheading{Main post-condition(s)}
+\addnumberedsinglerow{}{All the alerts were checked, and if any had an error was replaced}
+
+\addrowheading{Additional Information}
+\addsinglerow{
+none
+}
+
+\end{usecase} 
+

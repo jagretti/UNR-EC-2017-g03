@@ -90,6 +90,7 @@ import lu.uni.lassy.messir.libraries.calendar
 				operation ieSetCrisisType(AdtCrisisID: dtCrisisID): ptBoolean
 				operation ieChangeHandlerCrisis(AdtCrisisID: dtCrisisID): ptBoolean
 				operation ieSetCrisisStatus(AdtCrisisID: dtCrisisID): ptBoolean
+				operation ieCloseCrisis(AdtCrisisID: dtCrisisID): ptBoolean
 	 		}
 		}
 		

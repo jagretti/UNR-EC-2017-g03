@@ -72,6 +72,8 @@ import icrash.concepts.primarytypes.classes
 			}
 			datatype dtHash extends dtString {
 				operation is(): ptBoolean
+				external operation calculate(AdtAlertID: dtAlertID, Alocation:dtGPSLocation,
+					Acomment:dtComment, Ainstant:dtDateAndTime): dtHash
 			}
 			datatype dtHospitalInfo {
 				attribute location: dtGPSLocation

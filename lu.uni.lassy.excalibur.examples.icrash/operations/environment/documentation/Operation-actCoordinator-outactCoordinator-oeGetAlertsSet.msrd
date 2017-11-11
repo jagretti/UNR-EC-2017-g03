@@ -18,7 +18,7 @@ icrash.environment.actCoordinator.outactCoordinator.oeGetAlertsSet
 
 //preFunctional descriptions
 @preF
-"none"
+"it is supposed that there at least exist one ctAlert instance in the system"
 @endPreF
 
 //postFunctional descriptions

@@ -12,8 +12,6 @@ The \msrcode{oeSetCrisisStatus} operation has the following properties:
 	\addrowheading{Parameters}
 	\addnumbereddoublerow{}{AdtCrisisID: dtCrisisID}{the identification information used to determine the crisis} 
 	\addnumbereddoublerow{}{AetCrisisStatus: etCrisisStatus}{the new status value} 
-	\addnumbereddoublerow{}{AdtCrisisID: dtCrisisID}{ } 
-	\addnumbereddoublerow{}{AetCrisisStatus: etCrisisStatus}{ } 
 
 	\addrowheading{Return type}
 	\addsinglerow{ptBoolean}
@@ -34,6 +32,51 @@ The \msrcode{oeSetCrisisStatus} operation has the following properties:
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeSetCrisisStatus-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeSetCrisisStatus}.},label=OM-actCoordinator-oeSetCrisisStatus-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let TheSystem: ctState in
+	  		let TheActor:actAuthenticated in
+	  		self.rnActor.rnSystem = TheSystem
+	  		and self.rnActor = TheActor
+	  
+			/* PreP01 */
+	  		and TheSystem.vpStarted = true
+			/* PreP02 */
+	  		and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{let TheSystem: ctState in
+			let TheCrisisSet: Set(ctCrisis) in
+			TheSystem = self.rnActor.rnSystem
+			and TheSystem.rnctCrisis = TheCrisisSet
+			and TheCrisisSet->exists(c: ctCrisis | c.id = AdtCrisisID)}
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+			let TheCrisis: ctCrisis in
+			let TheCrisisSet: Set(ctCrisis) in
+			let TheActor: actCoordinator in
+			TheSystem = self.rnActor.rnSystem
+			and TheCrisisSet = TheSystem.rnctCrisis
+			and TheCrisis = TheCrisisSet->any(c: ctCrisis | c.id = AdtCrisisID)
+			and TheCrisis@post.status = AetCrisisStatus
+			and TheActor = self.rnActor
+			and TheActor.rnInterfaceIN^ieSetCrisisStatus(AdtCrisisID)}
+	
+	/* Post Protocol:*/ 
+	postP{ true}
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

@@ -39,18 +39,18 @@ import lu.uni.lassy.messir.libraries.calendar
 				attribute location: dtGPSLocation
 				attribute instant: dtDateAndTime
 				attribute comment: dtComment
-				attribute hash: dtHash
 				
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ,
-										AdtHash: dtHash):ptBoolean
+										Acomment:dtComment
+										):ptBoolean
 				operation isSentToCoordinator(AactCoordinator:actCoordinator ):ptBoolean
 			}
 	
 			class ctAlert role rnctAlert cardinality [0..*] extends ctAlertAC {
+				attribute hash: dtHash
 				operation init(     	Aid:dtAlertID ,
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
@@ -64,8 +64,7 @@ import lu.uni.lassy.messir.libraries.calendar
 										Astatus:etAlertStatus ,
 										Alocation:dtGPSLocation ,
 										Ainstant:dtDateAndTime ,
-										Acomment:dtComment ,
-										AdtHash: dtHash):ptBoolean
+										Acomment:dtComment):ptBoolean
 			}
 			
 			class ctCrisis role rnctCrisis cardinality [0..*]{

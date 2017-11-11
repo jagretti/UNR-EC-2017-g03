@@ -24,10 +24,17 @@ The \msrcode{oeSetCrisisHandler} operation has the following properties:
 	\addnumberedsinglerow{PreF}{ there exist one crisis having the given id in the pre-state.}
 
 	\addrowheading{Post-Condition (functional)}
-	\addnumberedsinglerow{PostF}{the ctCrisis instance having the provided id is in handled status at poststate and is associated to the actor that sends the message (which himself is notified with a textual message as confirmation).}
-	\addnumberedsinglerow{PostF}{All the alerts related to this crisis are sent to the actor such that he can decide how to handle them.}
-	\addnumberedsinglerow{PostF}{if the crisis was already handled at pre-sate then the associated handler actor is notified about the change of handler for one of his crisis (n.b. it might be the same even if not relevant).}
-	\addnumberedsinglerow{PostF}{a message is sent to the communication company for any human related to an alert associated to the crisis. A human will receive as many messages as alerts he sent despite the fact that they might relate to the same crisis (i.e. one alert, one acknoledgement).}
+	\addnumberedsinglerow{PostF}{the ctCrisis instance having the provided id is in handled status at poststate and
+	is associated to the actor that sends the message
+	(which himself is notified with a textual message as confirmation).}
+	\addnumberedsinglerow{PostF}{All the alerts related to this crisis are sent to the actor such that he can
+	 decide how to handle them.}
+	\addnumberedsinglerow{PostF}{if the crisis was already handled at pre-sate then the associated handler actor is 
+	notified about the change of handler for one of his crisis 
+	(n.b. it might be the same even if not relevant).}
+	\addnumberedsinglerow{PostF}{a message is sent to the communication company for any human related to an alert 
+	associated to the crisis. A human will receive as many messages as alerts he sent 
+	despite the fact that they might relate to the same crisis (i.e. one alert, one acknoledgement).}
 
 	\addrowheading{Post-Condition (protocol)}
 	\addnumberedsinglerow{PostP}{ none}
@@ -35,6 +42,65 @@ The \msrcode{oeSetCrisisHandler} operation has the following properties:
 
 
 
+	% ------------------------------------------
+	% MCL Listing
+	% ------------------------------------------
+	\vspace{1cm}
+	The listing~\ref{OM-actCoordinator-oeSetCrisisHandler-MCL-LST} provides the \msrmessir (MCL-oriented) specification of the operation.
+	
+	\scriptsize
+	\vspace{0.5cm}
+	\begin{lstlisting}[style=MessirStyle,firstnumber=auto,captionpos=b,caption={\msrmessir (MCL-oriented) specification of the operation \emph{oeSetCrisisHandler}.},label=OM-actCoordinator-oeSetCrisisHandler-MCL-LST]
+
+	/* Pre Protocol:*/ 
+	preP{let theSystem: ctState in
+	  		let theActor:actAuthenticated in
+	  		self.rnActor.rnSystem = TheSystem
+	  		and self.rnActor = TheActor
+	  
+			/* PreP01 */
+	  		and TheSystem.vpStarted = true
+			/* PreP02 */
+	  		and TheActor.rnctAuthenticated.vpIsLogged = true}
+	
+	/* Pre Functional:*/
+	preF{let TheSystem: ctState in
+			self.rnActor.rnSystem = TheSystem
+			and TheSystem.rnctCrisis->exists(a: ctCrisis | a.id = AdtCrisisID)}
+	
+	/* Post Functional:*/ 
+	postF{let TheSystem: ctState in
+			let TheCrisis: ctCrisis in
+			let TheActor: actCoordinator in
+			let TheOldActor: actCoordinator in
+			let TheAlerts: Set(ctAlert) in
+			let  TheactComCompany:actComCompany in
+			TheSystem = self.rnActor.rnSystem
+			and TheactComCompany = TheSystem.rnactComCompany
+			and TheActor = self.rnActor
+			and TheCrisis = TheSystem.rnctCrisis->any(a: ctCrisis | a.id = AdtCrisisID)
+			and TheCrisis@post.status = 'handled'
+			and TheCrisis@post.rnHandler = TheActor.rnctCoordinator
+			
+			and if (TheCrisis.status = 'handled')
+				then (TheOldActor = TheCrisis.rnHandler
+					and TheOldActor.rnInterfaceIN^ieChangeHandlerCrisis(AdtCrisisID)
+				)
+				else (true)
+				endif
+			and TheAlerts = TheCrisis.rnAlert
+			and TheAlerts->forAll(a: ctAlert | let AHuman: ctHuman in
+											   let AdtSms: dtSMS in
+											   AdtSms = 'The Coordinator of the crisis related to your Alert change'
+											   AHuman = a.rnSignaler
+											   and TheactComCompany.rnInterfaceIN^ieSmsSend(AHuman.id, AdtSms)
+			)}
+	
+	/* Post Protocol:*/ 
+	postP{ }
+	
+	\end{lstlisting}
+	\normalsize 
 	
 	
 	

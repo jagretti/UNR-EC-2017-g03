@@ -1,0 +1,31 @@
+/*
+@author jose
+@date Sat Nov 11 16:55:21 ART 2017
+*/
+
+
+@@Operation
+icrash.concepts.primarytypes.datatypes.dtHash.calculate
+//parameters
+@parameter
+icrash.concepts.primarytypes.datatypes.dtHash.calculate.AdtAlertID
+""
+@parameter
+icrash.concepts.primarytypes.datatypes.dtHash.calculate.Alocation
+""
+@parameter
+icrash.concepts.primarytypes.datatypes.dtHash.calculate.Acomment
+""
+@parameter
+icrash.concepts.primarytypes.datatypes.dtHash.calculate.Ainstant
+""
+@endParameters
+
+@description "Calculate the hash of an Alert, given a subset of its attributes
+ "
+//postFunctional descriptions
+@postF 
+" "
+@endPostF
+//example
+@example" "

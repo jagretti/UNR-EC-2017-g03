@@ -44,6 +44,7 @@ The \msrcode{oeAlert} operation has the following properties:
 	else the pre-state one is chosen
 	}
 	\addnumberedsinglerow{PostF}{and this specified ctHuman is related to the new alert thus indicating he has signed the alert. }
+	\addnumberedsinglerow{PostF}{A new ctAlertBackup is created, with the same attributes that the ctAlert has}
 
 	\addrowheading{Post-Condition (protocol)}
 	\addnumberedsinglerow{PostP}{ none}
@@ -97,6 +98,7 @@ The \msrcode{oeAlert} operation has the following properties:
 	 let  AptStringMessage:ptString in
 	 let  AdtSMS:dtSMS in
 	 let  AdtAlertID:dtAlertID in
+	 let  ActAlertBackup:ctAlertBackup in
 	 
 	  self.rnActor.rnSystem = TheSystem
 	  and self.rnActor = TheactComCompany
@@ -118,7 +120,9 @@ The \msrcode{oeAlert} operation has the following properties:
 	                  AetAlertStatus,
 	                  AdtGPSLocation,
 	                  AAlertInstant,
-	                  AdtComment)
+	                  AdtComment) // Duda, preguntar si lleva el hash el init
+	
+	and ActAlert@post.hash = ActAlert.hash.calculate(AdtAlertID, AdtGPSLocation, AdtComment, AAlertInstant)
 	      
 	  /* PostF03 */
 	and TheSystem.rnctAlert.select(location.isNearTo(AdtGPSLocation)) = ColctAlertsNearBy
@@ -161,7 +165,14 @@ The \msrcode{oeAlert} operation has the following properties:
 	
 	/* PostF06 */
 	AdtSMS.value = 'Your alert has been registered. We will handle it and keep you informed'
-	and TheactComCompany.rnInterfaceIN^ieSmsSend(AdtPhoneNumber,AdtSMS)}
+	and TheactComCompany.rnInterfaceIN^ieSmsSend(AdtPhoneNumber,AdtSMS)
+	
+	/* PostF07 */
+	and ActAlertBackup.init(AdtAlertID,
+	                  AetAlertStatus,
+	                  AdtGPSLocation,
+	                  AAlertInstant,
+	                  AdtComment)}
 	
 	/* Post Protocol:*/ 
 	postP{ true}

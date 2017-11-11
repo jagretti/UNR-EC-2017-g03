@@ -6,11 +6,45 @@ import lu.uni.lassy.messir.libraries.string
 import lu.uni.lassy.messir.libraries.calendar
 import icrash.concepts.primarytypes.datatypes
 import icrash.environment
+import icrash.concepts.primarytypes.classes
 
 Operation Model {
 
-operation: actCoordinator.outactCoordinator.oeSetCrisisType(AdtCrisisID:dtCrisisID, AetCrisisType:etCrisisType):ptBoolean{
-prolog{"src/Operations/Environment/OUT/outactCoordinator-oeSetCrisisType.pl"}
+operation: actCoordinator.outactCoordinator.oeSetCrisisType(AdtCrisisID:dtCrisisID, 
+	AetCrisisType:etCrisisType):ptBoolean{
+
+	preP {
+		let TheSystem:ctState in
+  		let TheActor:actAuthenticated in
+  		self.rnActor.rnSystem = TheSystem
+  		and self.rnActor = TheActor
+  
+		/* PreP01 */
+  		and TheSystem.vpStarted = true
+		/* PreP02 */
+  		and TheActor.rnctAuthenticated.vpIsLogged = true
+	}
+	
+	preF {
+		let theSystem:ctState in
+		self.rnActor.rnSystem = TheSystem
+		TheSystem.rnctCrisis->exists(a:ctCrisis | a.id = AdtCrisisID)
+	}
+	
+	postF {
+		let theSystem:ctState in
+		let theActor:actCoordinator in
+		let theCrisis:ctCrisis in
+		self.rnActor = theActor 
+		and	self.rnActor.rnSystem = TheSystem
+		and theCrisis = theSystem->any(a:ctCrisis | a.id = AdtCrisisID)
+		and theCrisis@post.status = AetCrisisType
+		and theActor.rnInterfaceIN^ieSetCrisisType(AdtCrisisID)
+	}
+	
+	postP {true}
+
+	//prolog{"src/Operations/Environment/OUT/outactCoordinator-oeSetCrisisType.pl"}
 }
 
 }
