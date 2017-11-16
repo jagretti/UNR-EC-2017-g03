@@ -1,0 +1,60 @@
+\subsubsection{usergoal-ugHospitalInformation}
+
+\label{RE-use-case-ugHospitalInformation}
+
+
+The coordinator goal is to provide information to near 
+hospitals of a crisis he is handling		  
+
+
+\begin{usecase}
+  \addheading{Use-Case Description}
+  \addsingletwocolumnrow{Name}{ugHospitalInformation}
+  \addsingletwocolumnrow{Scope}{system}
+  \addsingletwocolumnrow{Level}{usergoal}
+  
+
+\addrowheading{Primary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actCoordinator[active]}}
+
+
+\addrowheading{Secondary actor(s)}
+\addnumberedsinglerow{}{\msrcode{actHospital[passive]}}
+\addnumberedsinglerow{}{\msrcode{actHospital[passive]}}
+
+\addrowheading{Goal(s) description}
+\addsinglerow{The coordinator goal is to provide information to near 
+hospitals of a crisis he is handling}
+
+\addrowheading{Reuse}
+\addnumberedsinglerow{}{\msrucname{oeSetCrisisHandler [1..*]}}
+\addnumberedsinglerow{}{\msrucname{oeSendHospitalInfo [1..*]}}
+
+\addrowheading{Protocol condition(s)}
+\addnumberedsinglerow{}{The icrash system is deploy
+}
+
+\addrowheading{Pre-condition(s)}
+\addnumberedsinglerow{}{The coordinator is handling at least one crisis
+}
+
+\addrowheading{Main post-condition(s)}
+\addnumberedsinglerow{}{The near hospitals of the crisis location have selected information that may need
+to prepare themselves
+}
+
+\addrowheading{Main Steps}
+\addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{oeSetCrisisHandler} use case}
+\addalphanumberedsinglerow{}{the actor \msrcode{actCoordinator} executes the \msrucname{oeSendHospitalInfo} use case}
+\addrowheading{Steps Ordering Constraints}
+\addnumberedsinglerow{}{Once a coordinator is handling a crisis (a), he can send information
+								to hospitals (b) and provide useful information about the crisis or the
+								related alerts}
+
+\addrowheading{Additional Information}
+\addsinglerow{
+none
+}
+
+\end{usecase} 
+

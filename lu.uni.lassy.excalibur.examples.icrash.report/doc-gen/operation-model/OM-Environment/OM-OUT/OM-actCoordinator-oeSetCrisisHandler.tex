@@ -89,6 +89,12 @@ The \msrcode{oeSetCrisisHandler} operation has the following properties:
 				else (true)
 				endif
 			and TheAlerts = TheCrisis.rnAlert
+			and TheAlerts->forAll(a:ctAlert | if (a.hash = a.hash.calculate()) 
+													  then (a@post = a) 
+													  else (let c:ctAlertBackup in
+															c = TheAlertsBackup->select(b:ctAlertBackup | a.id = b.id)
+															and a@post = c) 
+													  endif)
 			and TheAlerts->forAll(a: ctAlert | let AHuman: ctHuman in
 											   let AdtSms: dtSMS in
 											   AdtSms = 'The Coordinator of the crisis related to your Alert change'

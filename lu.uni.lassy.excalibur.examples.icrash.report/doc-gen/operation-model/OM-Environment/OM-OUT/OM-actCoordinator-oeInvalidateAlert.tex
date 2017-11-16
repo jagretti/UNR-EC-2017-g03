@@ -66,10 +66,13 @@ The \msrcode{oeInvalidateAlert} operation has the following properties:
 	  		theSystem = self.rnActor.rnSystem and
 	  		theAlerts = theSystem.rnctAlert and
 	  		
-	  		theAlerts->any(a: ctAlert | a.id = AdtAlertID) = theAlert //
-	  		theAlert@post.status = "invalid"
-	  		
-	  		self.rnActor.rnInterfaceIN^ieInvalidateAlert(theAlert.id)}
+	  		theAlerts->any(a: ctAlert | a.id = AdtAlertID) = theAlert
+	  		if (theAlert.hash.isEqual(theAlertBackup.hash))
+	  		then (theAlert@post.status = "invalid")
+	  		else (theAlert@post = theAlertBackup
+	  			and theAlert@post.status = "invalid")
+	  		endif
+	  		and self.rnActor.rnInterfaceIN^ieInvalidateAlert(theAlert.id)}
 	
 	/* Post Protocol:*/ 
 	postP{ true}

@@ -1,0 +1,26 @@
+/*
+@author jose
+@date Tue Nov 14 21:51:31 ART 2017
+*/
+
+
+@@Use Case icrash.usecases.ugHospitalInformation.ugHospitalInformation
+@description "The coordinator goal is to provide information to near 
+hospitals of a crisis he is handling"
+@protocolCondition
+"The icrash system is deploy
+"
+@endProtocolConditions
+@preCondition
+"The coordinator is handling at least one crisis
+"
+@endPreConditions
+@postCondition
+"The near hospitals of the crisis location have selected information that may need
+to prepare themselves
+"
+@endPostConditions
+@additionalInformation
+"
+none
+"

@@ -1,0 +1,8 @@
+/*
+@author jose
+@date Wed Nov 15 16:56:04 ART 2017
+*/
+
+
+@@Instance Use Case usecases.uciugHospitalInformation.uciugHospitalInformation
+@description "User Jose handle a crisis, and then send important information to near hospitals"

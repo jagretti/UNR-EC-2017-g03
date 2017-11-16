@@ -141,6 +141,7 @@ import icrash.environment
 	actor actHospital[secondary, passive, multiple]
 	returned messages {
 		ieSendHospitalInfo(AdtHospitalInfo) returned to actHospital
+		ieMessage(AMessage) returned to actCoordinator
  	}
   }
 	use case system subfunction oeAddHospital(AdtHospitalID: dtHospitalID, AdtGPSLocation:dtGPSLocation) {

@@ -6,10 +6,51 @@ import lu.uni.lassy.messir.libraries.string
 import lu.uni.lassy.messir.libraries.calendar
 import icrash.concepts.primarytypes.datatypes
 import icrash.environment
+import icrash.concepts.primarytypes.classes
 
 Operation Model {
 
 operation: actCoordinator.outactCoordinator.oeCloseCrisis(AdtCrisisID:dtCrisisID):ptBoolean{
+	
+	preP {
+		let TheSystem: ctState in
+  		let TheActor:actAuthenticated in
+  		self.rnActor.rnSystem = TheSystem
+  		and self.rnActor = TheActor
+  
+		/* PreP01 */
+  		and TheSystem.vpStarted = true
+		/* PreP02 */
+  		and TheActor.rnctAuthenticated.vpIsLogged = true
+	}
+	
+	preF {
+		let TheSystem: ctState in
+		let TheCrisisSet: Set(ctCrisis) in
+		TheSystem = self.rnActor.rnSystem
+		and TheSystem.rnctCrisis = TheCrisisSet
+		and TheCrisisSet->exists(c: ctCrisis | c.id = AdtCrisisID)
+	}
+	
+	postF {
+		let TheSystem: ctState in
+		let TheCrisisSet: Set(ctCrisis) in
+		let TheCrisis: ctCrisis in
+		let TheActor: actCoordinator in
+		self.rnActor.rnSystem = TheSystem
+		and self.rnActor = TheActor
+		and TheCrisisSet = TheSystem.rnctCrisis
+		and TheCrisis = TheCrisisSet->any(c: ctCrisis | c.id = AdtCrisisID)
+		and TheCrisis@post.status = 'closed'
+		and TheCrisis.rnHandler.msrIsKilled
+		and TheCrisis.rnAlerts->forAll(msrIsKilled)
+		and TheActor.rnInterfaceIN^ieCloseCrisis(AdtCrisisID)
+	}
+	
+	postP {
+		true
+	}
+	
 prolog{"src/Operations/Environment/OUT/outactCoordinator-oeCloseCrisis.pl"}
 }
 }

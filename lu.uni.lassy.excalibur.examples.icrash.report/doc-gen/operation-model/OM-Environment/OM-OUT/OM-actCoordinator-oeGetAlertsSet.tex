@@ -21,7 +21,7 @@ The \msrcode{oeGetAlertsSet} operation has the following properties:
 	\addnumberedsinglerow{PreP}{the actor logged previously and did not log out ! (i.e. the associated ctCoordinator instance is considered logged)}
 		
 	\addrowheading{Pre-Condition (functional)}
-	\addnumberedsinglerow{PreF}{none}
+	\addnumberedsinglerow{PreF}{it is supposed that there at least exist one ctAlert instance in the system}
 
 	\addrowheading{Post-Condition (functional)}
 	\addnumberedsinglerow{PostF}{ the post state is the one obtained by satisfying the \msrcode{isSentToCoordinator} predicate for each alert having the provided status and for the actor sending the message. (cf. specification of \msrcode{isSentToCoordinator} predicate given for the \msrcode{ctAlert} type.}
@@ -54,15 +54,23 @@ The \msrcode{oeGetAlertsSet} operation has the following properties:
 	  		and TheActor.rnctAuthenticated.vpIsLogged = true}
 	
 	/* Pre Functional:*/
-	preF{true}
+	preF{let TheSystem: ctState in
+			self.rnActor.rnSystem = TheSystem
+			and not (TheSystem.rnctAlert->isEmpty())}
 	
 	/* Post Functional:*/ 
 	postF{let 
 				theSystem: ctState = self.rnActor.rnSystem,
 				theAlerts: Set(ctAlert) = Set{}
 			in
-				theAlerts = theSystem.rnctAlert-> select(a:ctAlert | a.status = AetAlertStatus) and
-				self.rnActor.rnInterfaceIN^ieSendAlerts(theAlerts)}
+				theAlerts = theSystem.rnctAlert-> select(a:ctAlert | a.status = AetAlertStatus)
+				and TheAlerts->forAll(a:ctAlert | if (a.hash = a.hash.calculate()) 
+													  then (a@post = a) 
+													  else (let c:ctAlertBackup in
+															c = TheAlertsBackup->select(b:ctAlertBackup | a.id = b.id)
+															and a@post = c) 
+													  endif)
+				and self.rnActor.rnInterfaceIN^ieSendAlerts(theAlerts)}
 	
 	/* Post Protocol:*/ 
 	postP{ true}

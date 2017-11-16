@@ -501,6 +501,13 @@
   <semanticResources>documentation/View-cm-view9.msrd</semanticResources>
   <semanticResources>usecases/documentation/UseCase-oeCheckAlertsIntegrity.msrd</semanticResources>
   <semanticResources>concepts/documentation/Operation-dtHash-calculate.msrd</semanticResources>
+  <semanticResources>usecases/documentation/UseCase-ugHospitalInformation.msrd</semanticResources>
+  <semanticResources>usecases/messir.msr</semanticResources>
+  <semanticResources>usecases/usecaseinstance-ugHospitalInformation-uciugHospitalInformation.msr</semanticResources>
+  <semanticResources>usecases/documentation/UseCaseInstance-uciugHospitalInformation.msrd</semanticResources>
+  <semanticResources>operations/environment/environment-actAdministrator-oeCheckAlertsIntegrity.msr</semanticResources>
+  <semanticResources>environment/documentation/Operation-actAdministrator-outactAdministrator-oeCheckAlertsIntegrity.msrd</semanticResources>
+  <semanticResources>documentation/View-uci-uciugHospitalInformation.msrd</semanticResources>
   <ownedViews xmi:type="viewpoint:DView" xmi:id="_WzMfgPWqEeSOM9Kfym77Zg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/lu.uni.lassy.excalibur.ui.viewer/description/excalibur_models.odesign#//@ownedViewpoints[name='msr-viewpoint']"/>
   </ownedViews>

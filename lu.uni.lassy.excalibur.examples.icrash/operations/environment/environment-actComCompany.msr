@@ -81,7 +81,7 @@ and ActAlert.init(AdtAlertID,
                   AetAlertStatus,
                   AdtGPSLocation,
                   AAlertInstant,
-                  AdtComment) // Duda, preguntar si lleva el hash el init
+                  AdtComment)
 
 and ActAlert@post.hash = ActAlert.hash.calculate(AdtAlertID, AdtGPSLocation, AdtComment, AAlertInstant)
       

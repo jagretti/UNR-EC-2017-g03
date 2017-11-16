@@ -66,12 +66,11 @@ The \msrcode{oeCheckAlertsIntegrity} operation has the following properties:
 					and TheSystem.rnctAlert = TheAlerts
 					and TheSystem.rnctAlertBackup = TheAlertsBackup
 					and TheAlerts->forAll(a:ctAlert | if (a.hash = a.hash.calculate()) 
-														then (a@post = a) 
-														else (let c:ctAlertBackup in
+													  then (a@post = a) 
+													  else (let c:ctAlertBackup in
 															c = TheAlertsBackup->select(b:ctAlertBackup | a.id = b.id)
-															and a@post = c
-														) 
-														endif)}
+															and a@post = c) 
+													  endif)}
 	
 	/* Post Protocol:*/ 
 	postP{ true}

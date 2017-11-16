@@ -1,0 +1,10 @@
+/*
+@author jose
+@date Wed Nov 15 17:00:31 ART 2017
+*/
+
+
+@@view uci-uciugHospitalInformation
+@instance Use-Case usecases.uciugHospitalInformation.uciugHospitalInformation 
+@description "The user Jose send information to heca and provincial hospitals (the near hospitals)"
+@caption ""

@@ -1,0 +1,32 @@
+package usecases.uciugHospitalInformation {
+	import icrash.usecases.ugHospitalInformation
+	import icrash.environment
+	import icrash.usecases.subfunctions
+	
+	
+
+	Use Case Model {
+
+		use case instance uciugHospitalInformation : ugHospitalInformation{
+			actors {
+				jose:actCoordinator
+				heca:actHospital
+				provincial:actHospital
+			}
+			use case steps {
+				jose
+				executed instanceof subfunction
+					oeSetCrisisHandler('12') {
+						ieMessage('Set crisis handling ok') returned to jose
+					}			
+				jose
+				executed instanceof subfunction
+					oeSendHospitalInfo("44.32535:6.159590", "2", "high", '12') {
+						ieSendHospitalInfo("44.32535:6.159590", "2", "high") returned to heca
+						ieSendHospitalInfo("44.32535:6.159590", "2", "high") returned to provincial
+						ieMessage('Information send') returned to jose
+					}
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+/*
+* @author jose
+* @date Sun Nov 12 20:44:50 ART 2017
+*/
+
+package icrash.usecases.ugHospitalInformation {
+
+import lu.uni.lassy.messir.libraries.primitives
+import icrash.environment
+import icrash.usecases.subfunctions
+
+
+	Use Case Model {
+		use case system usergoal ugHospitalInformation() {
+			actor actCoordinator[primary,active]
+			actor actHospital[secondary,passive]
+			actor actHospital[secondary,passive]
+			
+			reuse oeSetCrisisHandler[1..*]
+			reuse oeSendHospitalInfo[1..*]
+			
+			step a: actCoordinator
+				executes oeSetCrisisHandler
+			step b: actCoordinator
+				executes oeSendHospitalInfo
+			
+			ordering constraint "Once a coordinator is handling a crisis (a), he can send information
+								to hospitals (b) and provide useful information about the crisis or the
+								related alerts"
+		}
+	}
+
+
+}
